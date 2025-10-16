@@ -504,14 +504,14 @@
 			background: {
 				color: var(--c-white);
 			}
-      &.valid-error {
-        border: {
-          color: var(--border-valid);
-          style: solid;
-          width: 1px;
-          radius: var(--rd-medium);
-        }
-      }
+			&.valid-error {
+				border: {
+					color: var(--border-valid);
+					style: solid;
+					width: 1px;
+					radius: var(--rd-medium);
+				}
+			}
 			.schedule-column {
 				@include flex(flex, column, null, center, null, null, center);
 				overflow: hidden;
@@ -557,7 +557,7 @@
 			width: 36px;
 			height: 36px;
 			text-indent: -9999em;
-      z-index: 1;
+			z-index: 1;
 			&:disabled {
 				@include bg-image-set(icons, 'btn-flight-oneway-disabled', 50% 50%, no-repeat);
 			}
@@ -1482,4 +1482,10 @@
 	.underline {
 		color: var(--c-black);
 	}
+}
+
+// * 로그인 배너
+.login-banner {
+	diplay: block;
+	margin: 40px auto;
 }
