@@ -1487,5 +1487,8 @@
 // * 로그인 배너
 .login-banner {
 	display: block;
-	margin: 40px auto;
+	img {
+		width: 100%;
+		height: auto;
+	}
 }
