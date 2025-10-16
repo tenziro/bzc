@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="shortcut icon" type="image/x-icon" href="">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/base.css">
+	<title>bzp출장컨시어지</title>
+</head>
+
+<body>
+	<div id="wrap">
+		<header id="header" class="main">
+			<div class="left">
+				<button type="button" class="btn icons ico-page-back" aria-label="뒤로가기"></button>
+			</div>
+			<h1 class="title">예약 상세내역</h1>
+			<div class="right">
+				<button type="button" class="btn icons ico-user" aria-label="마이페이지"></button>
+				<button type="button" class="btn icons ico-menu" aria-label="전체메뉴"></button>
+			</div>
+		</header>
+		<main id="container" class="full">
+			<div id="contents" class="default">
+				<div class="reservation-button-area">
+					<button type="button" class="btn sm line-default squared">요금규정</button>
+					<button type="button" class="btn sm line-default squared">E-Ticket</button>
+					<button type="button" class="btn sm line-default squared">변경문의</button>
+					<button type="button" class="btn sm primary squared">예약취소</button>
+				</div>
+				<!-- 예약 정보 -->
+				<div class="reservation-contents">
+					<h2 class="contents-title">
+						<strong>예약 정보</strong>
+					</h2>
+					<h3 class="manager">
+						<span>예약 담당자</span>
+						<span>이현주 : <a href="tel:0212345678">02-1234-5678</a></span>
+					</h3>
+					<div class="flight-booking-summary">
+						<div class="booking-info">
+							<dl class="booking-main-info">
+								<dt><span class="label sm black">항공</span><span class="label sm line-black">왕복</span></dt>
+								<dd>서울 - 로스엔젤레스 - 서울</dd>
+							</dl>
+							<dl class="dl-list" data-direction="left">
+								<dt>예약번호</dt>
+								<dd>21122410004-H01</dd>
+								<dt>예약상태</dt>
+								<dd>예약확정<br><span class="c-point-1">[결제시한 : 2024.02.01 13:00]</span></dd>
+								<dt>결제상태</dt>
+								<dd>결제완료</dd>
+								<dt>이용일</dt>
+								<dd>2024.02.10(목) 01:22 ~ 2024.02.11(금) 12:55<br><span class="c-point-1">[D-222]</span></dd>
+								<dt>출장자</dt>
+								<dd>이윤지 외 1명</dd>
+								<dt>항공사</dt>
+								<dd>대한항공, 아시아나항공</dd>
+								<dt>좌석</dt>
+								<dd>일반석</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+				<!-- 상세 스케줄 -->
+				<div class="reservation-contents">
+					<h2 class="contents-title">
+						<strong>상세 스케줄</strong>
+					</h2>
+					<!-- 스케줄 반복 -->
+					<details class="flight-schedule-item" open>
+						<summary class="flight-schedule-item-header">
+							<div class="title">가는편</div>
+							<div class="item-summary">
+								<div class="item-route">
+									<strong>인천 국제공항(ICN)</strong>
+									<i class="icon-flight-schedule-arrow"></i>
+									<strong>로스앤젤레스 국제공항(LAX)</strong>
+								</div>
+								<div class="item-schedule">
+									<span>2024.03.01(월)</span>
+									<span>경유 2회</span>
+									<span>17시간 10분</span>
+								</div>
+							</div>
+						</summary>
+						<div class="flight-schedule-item-body">
+							<!-- 반복 -->
+							<div class="itinerary-item">
+								<div class="itinerary">
+									<p class="time">15:20</p>
+									<p class="date">22.11.01(금)</p>
+									<p class="total">11시간 30분</p>
+								</div>
+								<div class="information">
+									<p><span class="label type1 line3">ICN</span></p>
+									<p class="airport">
+										인천(인천 국제공항 T2) 출발
+									</p>
+									<ul class="airline-detail">
+										<li class="airline"><img src="../../assets/images/logos/airlines/7C_Small.png" alt="제주항공" class="icon-airline sm"><span class="airline-name">제주항공 7C115</span></li>
+										<li class="airline"><img src="../../assets/images/logos/airlines/KE_Small.png" alt="대한항공" class="icon-airline sm"><span class="airline-name">대한항공 KE450</span><span class="code-share type1">실제운항사</span></li>
+										<li>Boeing 777-200</li>
+										<li>일반석 / 무료수하물</li>
+										<li>(성인 1PC / 소아 1PC)</li>
+									</ul>
+									<div class="airline-option">
+										<span class="meal">식사</span>
+										<span class="wifi">WIFI</span>
+										<span class="socket">콘센트</span>
+										<span class="vod">VOD서비스</span>
+									</div>
+									<!-- * 중간 기착지 표시 -->
+									<ul class="stop-airports">
+										<li>중간 기착지1 - 도쿄(NRT) 대기 01:00</li>
+										<li>중간 기착지2 - 댈러스(DFW) 대기 01:00</li>
+									</ul>
+								</div>
+							</div>
+							<!-- 반복 :: 환승정보가 포함되어 있을 경우-->
+							<div class="itinerary-item layover">
+								<div class="itinerary">
+									<p class="time">15:20</p>
+									<p class="date">22.11.01(금)</p>
+									<p class="total">11시간 30분</p>
+								</div>
+								<div class="information">
+									<p><span class="label type1 line3">PVG</span></p>
+									<p class="airport">
+										상하이(푸동 국제공항 T2) 도착
+									</p>
+									<ul class="airport-option">
+										<li class="transfer">상하이 환승</li>
+										<li class="luggage">수하물 연결수속</li>
+									</ul>
+								</div>
+							</div>
+							<!-- 반복 -->
+							<div class="itinerary-item">
+								<div class="itinerary">
+									<p class="time">15:20</p>
+									<p class="date">22.11.01(금)</p>
+									<p class="total">11시간 30분</p>
+								</div>
+								<div class="information">
+									<p><span class="label type1 line3">LAX</span></p>
+									<p class="airport">
+										로스엔젤레스(로스앤젤레스 국제공항 B) 도착
+									</p>
+									<ul class="airline-detail">
+										<li class="airline"><img src="../../assets/images/logos/airlines/7C_Small.png" alt="제주항공" class="icon-airline sm"><span class="airline-name">제주항공 7C115</span></li>
+										<li class="airline"><img src="../../assets/images/logos/airlines/KE_Small.png" alt="대한항공" class="icon-airline sm"><span class="airline-name">대한항공 KE450</span><span class="code-share type1">실제운항사</span></li>
+										<li>Boeing 777-200</li>
+										<li>일반석 / 무료수하물</li>
+										<li>(성인 1PC / 소아 1PC)</li>
+									</ul>
+									<div class="airline-option">
+										<span class="meal">식사</span>
+										<span class="wifi">WIFI</span>
+										<span class="socket">콘센트</span>
+										<span class="vod">VOD서비스</span>
+									</div>
+									<!-- * 중간 기착지 표시 -->
+									<ul class="stop-airports">
+										<li>중간 기착지1 - 도쿄(NRT) 대기 01:00</li>
+										<li>중간 기착지2 - 댈러스(DFW) 대기 01:00</li>
+									</ul>
+								</div>
+							</div>
+							<!-- 반복 -->
+							<div class="itinerary-item">
+								<div class="itinerary">
+									<p class="time">15:20</p>
+									<p class="date">22.11.01(금)</p>
+								</div>
+								<div class="information">
+									<p><span class="label type1 line3">LAX</span></p>
+									<p class="airport">
+										로스엔젤레스(로스앤젤레스 국제공항 B) 도착
+									</p>
+								</div>
+							</div>
+						</div>
+					</details>
+					<details class="flight-schedule-item">
+						<summary class="flight-schedule-item-header">
+							<div class="title">오는편</div>
+							<div class="item-summary">
+								<div class="item-route">
+									<strong>인천 국제공항(ICN)</strong>
+									<i class="icon-flight-schedule-arrow"></i>
+									<strong>로스앤젤레스 국제공항(LAX)</strong>
+								</div>
+								<div class="item-schedule">
+									<span>2024.03.01(월)</span>
+									<span>경유 2회</span>
+									<span>17시간 10분</span>
+								</div>
+							</div>
+						</summary>
+						<div class="flight-schedule-item-body">
+							<!-- 반복 -->
+							<div class="itinerary-item">
+								<div class="itinerary">
+									<p class="time">15:20</p>
+									<p class="date">22.11.01(금)</p>
+									<p class="total">11시간 30분</p>
+								</div>
+								<div class="information">
+									<p><span class="label type1 line3">ICN</span></p>
+									<p class="airport">
+										인천(인천 국제공항 T2) 출발
+									</p>
+									<ul class="airline-detail">
+										<li class="airline"><img src="../../assets/images/logos/airlines/7C_Small.png" alt="제주항공" class="icon-airline sm"><span class="airline-name">제주항공 7C115</span></li>
+										<li class="airline"><img src="../../assets/images/logos/airlines/KE_Small.png" alt="대한항공" class="icon-airline sm"><span class="airline-name">대한항공 KE450</span><span class="code-share type1">실제운항사</span></li>
+										<li>Boeing 777-200</li>
+										<li>일반석 / 무료수하물</li>
+										<li>(성인 1PC / 소아 1PC)</li>
+									</ul>
+									<div class="airline-option">
+										<span class="meal">식사</span>
+										<span class="wifi">WIFI</span>
+										<span class="socket">콘센트</span>
+										<span class="vod">VOD서비스</span>
+									</div>
+									<!-- * 중간 기착지 표시 -->
+									<ul class="stop-airports">
+										<li>중간 기착지1 - 도쿄(NRT) 대기 01:00</li>
+										<li>중간 기착지2 - 댈러스(DFW) 대기 01:00</li>
+									</ul>
+								</div>
+							</div>
+							<!-- 반복 :: 환승정보가 포함되어 있을 경우-->
+							<div class="itinerary-item layover">
+								<div class="itinerary">
+									<p class="time">15:20</p>
+									<p class="date">22.11.01(금)</p>
+									<p class="total">11시간 30분</p>
+								</div>
+								<div class="information">
+									<p><span class="label type1 line3">PVG</span></p>
+									<p class="airport">
+										상하이(푸동 국제공항 T2) 도착
+									</p>
+									<ul class="airport-option">
+										<li class="transfer">상하이 환승</li>
+										<li class="luggage">수하물 연결수속</li>
+									</ul>
+								</div>
+							</div>
+							<!-- 반복 -->
+							<div class="itinerary-item">
+								<div class="itinerary">
+									<p class="time">15:20</p>
+									<p class="date">22.11.01(금)</p>
+									<p class="total">11시간 30분</p>
+								</div>
+								<div class="information">
+									<p><span class="label type1 line3">LAX</span></p>
+									<p class="airport">
+										로스엔젤레스(로스앤젤레스 국제공항 B) 도착
+									</p>
+									<ul class="airline-detail">
+										<li class="airline"><img src="../../assets/images/logos/airlines/7C_Small.png" alt="제주항공" class="icon-airline sm"><span class="airline-name">제주항공 7C115</span></li>
+										<li class="airline"><img src="../../assets/images/logos/airlines/KE_Small.png" alt="대한항공" class="icon-airline sm"><span class="airline-name">대한항공 KE450</span><span class="code-share type1">실제운항사</span></li>
+										<li>Boeing 777-200</li>
+										<li>일반석 / 무료수하물</li>
+										<li>(성인 1PC / 소아 1PC)</li>
+									</ul>
+									<div class="airline-option">
+										<span class="meal">식사</span>
+										<span class="wifi">WIFI</span>
+										<span class="socket">콘센트</span>
+										<span class="vod">VOD서비스</span>
+									</div>
+									<!-- * 중간 기착지 표시 -->
+									<ul class="stop-airports">
+										<li>중간 기착지1 - 도쿄(NRT) 대기 01:00</li>
+										<li>중간 기착지2 - 댈러스(DFW) 대기 01:00</li>
+									</ul>
+								</div>
+							</div>
+							<!-- 반복 -->
+							<div class="itinerary-item">
+								<div class="itinerary">
+									<p class="time">15:20</p>
+									<p class="date">22.11.01(금)</p>
+								</div>
+								<div class="information">
+									<p><span class="label type1 line3">LAX</span></p>
+									<p class="airport">
+										로스엔젤레스(로스앤젤레스 국제공항 B) 도착
+									</p>
+								</div>
+							</div>
+						</div>
+					</details>
+				</div>
+				<!-- 예약자 정보 -->
+				<div class="reservation-contents">
+					<h2 class="contents-title">
+						<strong>예약자 정보</strong>
+						<button type="button" class="btn-edit" aria-label="수정"></button>
+					</h2>
+					<div class="contents-box bordered">
+						<dl class="dl-list" data-direction="left">
+							<dt>예약자명</dt>
+							<dd>박인영</dd>
+							<dt>휴대폰번호</dt>
+							<dd>010-1111-2222</dd>
+							<dt>이메일 주소</dt>
+							<dd>inyoung.park@traport.com</dd>
+						</dl>
+					</div>
+				</div>
+				<!-- 탑승객 정보 -->
+				<div class="reservation-contents">
+					<h2 class="contents-title">
+						<strong>탑승객 정보</strong>
+					</h2>
+					<div class="guest-list">
+						<!-- 탑승자 반복 :: 국내선 -->
+						<dl class="guest-item">
+							<dt>
+								<strong>1번째 탑승자</strong>
+								<span>이윤지(여성)</span>
+							</dt>
+							<dd>
+								<dl class="dl-list3" data-direction="left">
+									<dt>생년월일</dt>
+									<dd>1984.01.01</dd>
+									<dt>여권정보</dt>
+									<dd><span class="label sm black">등록완료</span><button type="button" class="btn-edit2" aria-label="수정"></button></dd>
+									<dt>마일리지</dt>
+									<dd><span class="label sm line-gray">등록대기</span><button type="button" class="btn-edit2" aria-label="수정"></button></dd>
+								</dl>
+							</dd>
+						</dl>
+						<!-- 탑승자 반복 :: 국제선 -->
+						<dl class="guest-item">
+							<dt>
+								<strong>2번째 탑승자</strong>
+								<span>PARK/SOYOUNG(여성)</span>
+							</dt>
+							<dd>
+								<dl class="dl-list3" data-direction="left">
+									<dt>생년월일</dt>
+									<dd>1984.01.01</dd>
+									<dt>여권정보</dt>
+									<dd><span class="label sm black">등록완료</span><button type="button" class="btn-edit2" aria-label="수정"></button></dd>
+									<dt>마일리지</dt>
+									<dd><span class="label sm line-gray">등록대기</span><button type="button" class="btn-edit2" aria-label="수정"></button></dd>
+								</dl>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<!-- 현지 체류지 정보 -->
+				<div class="reservation-contents">
+					<h2 class="contents-title">
+						<strong>현지 체류지 정보</strong>
+						<button type="button" class="btn-edit" aria-label="수정"></button>
+					</h2>
+					<!-- 현지 체류지 입력 전 -->
+					<div class="contents-box bordered">
+						<div class="list-nodata">
+							<p class="text">등록된 체류지 정보가 없습니다.</p>
+						</div>
+					</div>
+					<!-- 현재 체류지 입력 후 -->
+					<div class="contents-box bordered">
+						<dl class="dl-list" data-direction="left">
+							<dt>체류 국가</dt>
+							<dd>미국</dd>
+							<dt>체류 도시</dt>
+							<dd>뉴욕(NYC)</dd>
+							<dt>체류 주</dt>
+							<dd>NY</dd>
+							<dt>체류 주소</dt>
+							<dd>32 ND STREET</dd>
+							<dt>우편번호</dt>
+							<dd>00124</dd>
+						</dl>
+					</div>
+				</div>
+				<!-- 요금 정보 -->
+				<div class="reservation-contents">
+					<h2 class="contents-title">
+						<strong>요금 정보</strong>
+					</h2>
+					<div class="contents-box default">
+						<!-- 인원 반복 -->
+						<details class="traveler-accordion" open>
+							<summary class="traveler-accordion-header">
+								<strong>1번째 탑승자</strong>
+								<span>이윤지(여성)</span>
+							</summary>
+							<div class="traveler-accordion-body">
+								<dl class="dl-list" data-direction="right">
+									<dt>항공요금</dt>
+									<dd>100,000원</dd>
+									<dt>TAX</dt>
+									<dd>15,000원</dd>
+									<dt>유류할증료</dt>
+									<dd>5,000원</dd>
+									<dt>발권수수료</dt>
+									<dd>1,500원</dd>
+								</dl>
+								<dl class="comm-total-price" data-type="list">
+									<dt>요금 총액</dt>
+									<dd>
+										<p><strong class="c-primary-blue">1,118,500원</strong></p>
+									</dd>
+								</dl>
+							</div>
+						</details>
+						<!-- 인원 반복 -->
+						<details class="traveler-accordion" open>
+							<summary class="traveler-accordion-header">
+								<strong>2번째 탑승자</strong>
+								<span>이윤지(여성)</span>
+							</summary>
+							<div class="traveler-accordion-body">
+								<dl class="dl-list" data-direction="right">
+									<dt>항공요금</dt>
+									<dd>100,000원</dd>
+									<dt>TAX</dt>
+									<dd>15,000원</dd>
+									<dt>유류할증료</dt>
+									<dd>5,000원</dd>
+									<dt>발권수수료</dt>
+									<dd>1,500원</dd>
+								</dl>
+								<dl class="comm-total-price" data-type="list">
+									<dt>요금 총액</dt>
+									<dd>
+										<p><strong class="c-primary-blue">1,118,500원</strong></p>
+									</dd>
+								</dl>
+							</div>
+						</details>
+						<div class="btn-area both pd-l16 pd-r16 pd-b16">
+							<button type="button" class="btn sm line-black squared">요금 규정</button>
+							<button type="button" class="btn sm black squared">결제하기</button>
+						</div>
+					</div>
+				</div>
+				<!-- 결제 정보 -->
+				<div class="reservation-contents">
+					<h2 class="contents-title">
+						<strong>결제 정보</strong>
+					</h2>
+					<div class="contents-box default">
+						<!-- 인원 반복 -->
+						<details class="traveler-accordion" open>
+							<summary class="traveler-accordion-header">
+								<strong>1번째 탑승자</strong>
+								<span>이윤지(여성)</span>
+							</summary>
+							<div class="traveler-accordion-body">
+								<dl class="dl-list" data-direction="right">
+									<dt>항공 예약(포인트)</dt>
+									<dd>100,000원</dd>
+									<dt>항공 예약(포인트)</dt>
+									<dd><span class="c-point-1">-25,000원</span></dd>
+									<dt>항공 예약(비플머니)</dt>
+									<dd>17,000원</dd>
+									<dt>발권수수료(포인트)</dt>
+									<dd>1,500원</dd>
+								</dl>
+								<dl class="comm-total-price" data-type="list">
+									<dt>총 결제 금액<em>삼성카드(2313)/일시불</em></dt>
+									<dd>
+										<p><strong class="c-primary-blue">118,500원</strong></p>
+									</dd>
+								</dl>
+							</div>
+						</details>
+						<!-- 인원 반복 -->
+						<details class="traveler-accordion" open>
+							<summary class="traveler-accordion-header">
+								<strong>2번째 탑승자</strong>
+								<span>PARK/SOYOUNG(여성)</span>
+							</summary>
+							<div class="traveler-accordion-body">
+								<dl class="dl-list" data-direction="right">
+									<dt>항공 예약(포인트)</dt>
+									<dd>1,100,000원</dd>
+									<dt>항공 예약(포인트)</dt>
+									<dd><span class="c-point-1">-25,000원</span></dd>
+									<dt>항공 예약(비플머니)</dt>
+									<dd>156,000원</dd>
+									<dt>항공 예약(비플머니)</dt>
+									<dd><span class="c-point-1">-25,000원</span></dd>
+									<dt>발권수수료(포인트)</dt>
+									<dd>15,000원</dd>
+								</dl>
+								<dl class="comm-total-price" data-type="list">
+									<dt>총 결제 금액<em>삼성카드(2313)/일시불</em></dt>
+									<dd>
+										<p><strong class="c-primary-blue">118,500원</strong></p>
+									</dd>
+								</dl>
+							</div>
+						</details>
+					</div>
+				</div>
+				<!-- 항공사 패널티 -->
+				<div class="reservation-contents">
+					<h2 class="contents-title">
+						<strong>항공사 패널티</strong>
+					</h2>
+					<div class="contents-box default">
+						<!-- 인원 반복 -->
+						<details class="traveler-accordion" open>
+							<summary class="traveler-accordion-header">
+								<strong>1번째 탑승자</strong>
+								<span>이윤지(여성)</span>
+							</summary>
+							<div class="traveler-accordion-body">
+								<div class="payment-group">
+									<dl class="dl-list" data-direction="right">
+										<dt>항공사 패널티</dt>
+										<dd>80,000원</dd>
+									</dl>
+								</div>
+							</div>
+						</details>
+						<!-- 인원 반복 -->
+						<details class="traveler-accordion" open>
+							<summary class="traveler-accordion-header">
+								<strong>2번째 탑승자</strong>
+								<span>PARK/SOYOUNG(여성)</span>
+							</summary>
+							<div class="traveler-accordion-body">
+								<div class="payment-group">
+									<dl class="dl-list" data-direction="right">
+										<dt>항공사 패널티</dt>
+										<dd>80,000원</dd>
+									</dl>
+								</div>
+							</div>
+						</details>
+					</div>
+				</div>
+				<!-- 발권 정보 -->
+				<div class="reservation-contents">
+					<h2 class="contents-title">
+						<strong>발권 정보</strong>
+					</h2>
+					<div class="contents-box default">
+						<!-- 인원 반복 -->
+						<details class="traveler-accordion" open>
+							<summary class="traveler-accordion-header">
+								<strong>1번째 탑승자</strong>
+								<span>이윤지(여성)</span>
+							</summary>
+							<div class="traveler-accordion-body">
+								<dl class="dl-list" data-direction="right">
+									<dt>티켓번호</dt>
+									<dd>180-1234567890</dd>
+								</dl>
+								<div class="btn-area mg-t12">
+									<button type="button" class="btn sm primary squared">E-Ticket 확인</button>
+								</div>
+							</div>
+						</details>
+						<!-- 인원 반복 -->
+						<details class="traveler-accordion" open>
+							<summary class="traveler-accordion-header">
+								<strong>2번째 탑승자</strong>
+								<span>PARK/SOYOUNG(여성)</span>
+							</summary>
+							<div class="traveler-accordion-body">
+								<dl class="dl-list mg-b12" data-direction="right">
+									<dt>티켓번호</dt>
+									<dd>미발권</dd>
+								</dl>
+								<div class="btn-area mg-t12">
+									<button type="button" class="btn sm line-default squared">발권요청</button>
+								</div>
+							</div>
+						</details>
+					</div>
+				</div>
+				<!-- 고객문의 -->
+				<div class="reservation-contents">
+					<h2 class="contents-title">
+						<strong>고객문의</strong>
+						<!-- 고객문의가 1개 이상일때 보여짐 -->
+						<button type="button" class="btn-edit" aria-label="작성"></button>
+					</h2>
+					<div class="qna-list-item">
+						<button type="button" class="view"></button>
+						<div class="qna-list-item-header">
+							<span class="text">K23030610003F01</span>
+							<span class="label sm line-gray">답변대기</span>
+						</div>
+						<div class="qna-list-item-body">
+							<div class="title">서울 - 뉴욕</div>
+							<dl>
+								<div>
+									<dt>상담분류</dt>
+									<dd>예약문의</dd>
+								</div>
+								<div>
+									<dt>접수일시</dt>
+									<dd>2023.05.09(월) 15:30:30</dd>
+								</div>
+							</dl>
+						</div>
+					</div>
+					<button type="button" class="btn-list-more">더보기 1/100</button>
+					<!-- 등록된 문의 없음 -->
+					<div class="list-nodata md">
+						<i class="ico-nodata"></i>
+						<p class="title">등록된 문의가 없습니다.</p>
+						<div class="mg-t20">
+							<button type="button" class="btn md primary rounded inline">문의하기</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer id="footer">
+			<ul class="util-menu">
+				<li>
+					<button type="button" class="btn-util">예약확인/결제</button>
+				</li>
+				<li>
+					<a href="tel:027265827" class="btn-util">고객센터 : <span class="underline">02-726-5827</span></a>
+				</li>
+			</ul>
+			<ul class="footer-info">
+				<li><span><button type="button" class="btn-footer-info"><strong>개인정보처리방침</strong></button></span><span><button type="button" class="btn-footer-info">이용약관</button></span></li>
+				<li>비즈플레이(주)</li>
+				<li>
+					대표이사 : 김홍기
+				</li>
+				<li>
+					주소 : <address>서울시 영등포구 영신로 220 KnK디지털타워 12층</address>
+				</li>
+				<li>사업자등록번호 : 107-88-36127</li>
+				<li>통신판매신고번호 : 2015-서울영등포-0113호</li>
+				<li>Copyright(c) bizplay All rights reserved.</li>
+				<li class="mg-t12">비즈플레이㈜는 통신판매 중개자로서 통신판매 당사자가 아니며 여행 상품의 예약, 이용, 결제, 환불 등과 관련한 의무와 책임은 각 상품 공급사에 있습니다.</li>
+			</ul>
+		</footer>
+	</div>
+
+</body>
+
+</html>

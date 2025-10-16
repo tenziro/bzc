@@ -1,0 +1,62 @@
+.ico-page-back {
+	@include bg-image-svg(common, 'ico-page-back', 50% 50%, no-repeat, null, constain)
+}
+.ico-close {
+	@include bg-image-svg(common, 'ico-close', 50% 50%, no-repeat, null, constain)
+}
+.ico-user {
+	@include bg-image-svg(common, 'ico-user', 50% 50%, no-repeat, null, constain)
+}
+.ico-menu {
+	@include bg-image-svg(common, 'ico-menu', 50% 50%, no-repeat, null, constain)
+}
+.ico-search {
+	@include bg-image-svg(icons, 'ico-search', 50% 50%, no-repeat, null, constain)
+}
+.ico-nodata {
+	@include bg-image-set(common, 'ico-nodata', 50% 50%, no-repeat, null, constain);
+	width: 54px;
+	height: 50px;
+}
+.icon-spinner {
+	@include bg-image-set(common, 'ico-spinner', 50% 50%, no-repeat, null, 100% auto);
+	display: inline-block;
+	width: 48px;
+	height: 48px;
+	animation: spinner 1s steps(12) infinite;
+  }
+
+.icon {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: middle;
+	text-indent: -9999em;
+	background: {
+		position: 50% 50%;
+		repeat: no-repeat;
+	}
+	&.big {
+		width: 100px;
+		height: 100px;
+		&.join-complete {
+			@include bg-image-set(icons, 'ico-3d-join-complete');
+		}
+		&.password-confirm {
+			@include bg-image-set(icons, 'ico-3d-password-confirm');
+		}
+		&.receive {
+			@include bg-image-set(icons, 'ico-3d-receive');
+		}
+	}
+	&.question {
+		@include bg-image-set(common, 'ico-question');
+		width: 24px;
+		height: 24px;
+	}
+	&.answer {
+		@include bg-image-set(common, 'ico-answer');
+		width: 22px;
+		height: 22px;
+	}
+}
+

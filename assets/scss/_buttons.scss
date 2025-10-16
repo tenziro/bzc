@@ -1,0 +1,228 @@
+// * button
+.btn {
+	height: var(--btn-height);
+	width: var(--btn-width);
+	font: {
+		size: var(--btn-font-size);
+		weight: var(--btn-font-weight);
+	}
+	&.inline {
+		@include flex(inline-flex, column, null, center, null, null, center);
+		padding: 0 24px;
+	}
+	&:not(.inline) {
+		@include flex(flex, column, null, center, null, null, center);
+		--btn-width: 100%;
+	}
+	&.line-primary {
+		color: var(--primary-blue);
+		background: {
+			color: var(--c-white);
+		}
+		@include border(all, 1px, solid, var(--primary-blue));
+	}
+	&.primary {
+		color: var(--c-white);
+		background: {
+			color: var(--primary-blue);
+		}
+	}
+	&.secondary {
+		color: var(--c-white);
+		background: {
+			color: var(--secondary-blue);
+		}
+	}
+	&.tertiary {
+		color: var(--c-black);
+		background: {
+			color: var(--default-bg);
+		}
+	}
+	&.primary,
+	&.secondary,
+	&.tertiary {
+		&:disabled {
+			color: var(--c-white);
+			border: {
+				color: transparent;
+			}
+			background: {
+				color: var(--disabled-btn);
+			}
+		}
+	}
+	&.line-default {
+		@include border(all, 1px, solid, var(--border-default));
+		color: var(--c-black);
+	}
+	&.line-black {
+		@include border(all, 1px, solid, var(--c-black));
+		color: var(--c-black);
+		background: {
+			color: var(--c-white);
+		}
+	}
+	&.black {
+		color: var(--c-white);
+		background: {
+			color: var(--c-black);
+		}
+	}
+	&.line-default {
+		@include border(all, 1px, solid, var(--border-default));
+		color: var(--c-black);
+	}
+	&.sm {
+		--btn-height: 40px;
+		--btn-font-size: 14px;
+		--btn-font-weight: 500;
+	}
+	&.md {
+		--btn-height: 44px;
+		--btn-font-size: 15px;
+		--btn-font-weight: 700;
+	}
+	&.lg {
+		--btn-height: 50px;
+		--btn-font-size: 16px;
+		--btn-font-weight: 700;
+	}
+	&.xl {
+		--btn-height: 56px;
+		--btn-font-size: 16px;
+		--btn-font-weight: 700;
+	}
+	&.rounded {
+		border-radius: calc(var(--btn-height) / 2);
+	}
+	&.squared {
+		border-radius: 8px;
+	}
+	&.icons {
+		flex: none;
+		--btn-height: 24px;
+		--btn-width: 24px;
+	}
+}
+
+// * button area
+.btn-area {
+	&.default {
+		padding: 20px 20px 32px;
+	}
+	&.both {
+		@include flex(flex, null, null, center);
+		gap: 8px;
+	}
+}
+// * 목록 더보기 버튼
+.btn-list-more {
+	@include flex(flex, null, null, center, null, null, center);
+	@include border(all, 1px, solid, var(--border-default), var(--height));
+	--height: 40px;
+	height: var(--height);
+	margin: 24px auto 0;
+	padding: 0 20px;
+	color: var(--c-black);
+	font: {
+		size: var(--fs-medium);
+		weight: var(--fw-medium);
+	}
+	background: {
+		color: var(--c-white);
+	}
+}
+// * 파일 추가, 삭제
+.btn-content {
+	@include flex(flex, null, null, center, null, null, center);
+	@include border(all, 1px, solid, transparent, var(--rd-medium));
+	width: 100%;
+	&:before {
+		content: "";
+		display: inline-block;
+		flex: none;
+		width: 12px;
+		height: 12px;
+		margin-right: 6px;
+	}
+	height: 44px;
+	font: {
+		size: var(--fs-medium);
+		weight: var(--fw-bold);
+	}
+	&.type1 {
+		color: var(--c-white);
+		background: {
+			color: var(--c-black);
+		}
+		&.add {
+			&:before {
+				@include bg-image-set(common, 'ico-attach-add');
+			}
+		}
+		&.delete {
+			&:before {
+				@include bg-image-set(common, 'ico-attach-delete2');
+			}
+		}
+	}
+	&.type2 {
+		color: var(--c-black);
+		background: {
+			color: var(--c-white);
+		}
+		border: {
+			color: var(--c-black);
+		}
+		&.add {
+			&:before {
+				@include bg-image-set(common, 'ico-attach-add2');
+			}
+		}
+		&.delete {
+			&:before {
+				@include bg-image-set(common, 'ico-attach-delete');
+			}
+		}
+	}
+}
+// * 문의하기
+.btn-arrow-text {
+	@include flex(inline-flex, null, null, center);
+	color: var(--primary-blue);
+	font: {
+		size: var(--fs-small);
+		weight: var(--fw-bold);
+	}
+	&:after {
+		@include bg-image-set(icons, 'ico-arrow-more', 50% 50%, no-repeat);
+		content: '';
+		display: inline-block;
+		flex: none;
+		width: 14px;
+		height: 14px;
+		margin-left: 2px;
+	}
+}
+// * 수정
+.btn-edit {
+	@include bg-image-set(common, 'btn-edit', 50% 50%, no-repeat, null, 20px auto);
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+.btn-edit2 {
+	@include bg-image-set(common, 'btn-edit2', 50% 50%, no-repeat);
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+}
+// * 로그아웃 버튼
+.btn-logout {
+	@include underline-offset(4);
+	color: var(--c-gray-3);
+	font: {
+		weight: var(--fw-bold);
+	}
+}

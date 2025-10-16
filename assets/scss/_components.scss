@@ -1,0 +1,745 @@
+.title1 {
+	font: {
+		size: var(--fs-large);
+		weight: var(--fw-bold);
+	}
+	color: var(--c-black);
+}
+
+.comm-total-price {
+	&[data-type='list'] {
+		@include flex(flex, null, null, center, null, null, space-between);
+		@include border(top, 1px, solid, var(--border-default));
+		margin-top: 16px;
+		padding-top: 16px;
+		dt {
+			color: var(--c-black);
+			font: {
+				weight: var(--fw-semi);
+			}
+			.btn-total-price {
+				@include flex(inline-flex, null, null, center);
+				&:after {
+					@include bg-image-set(icons, ico-information, 50% 50%, no-repeat);
+					flex: none;
+					content: '';
+					width: 14px;
+					height: 14px;
+					margin-left: 6px;
+				}
+			}
+		}
+	}
+	&[data-type='box'] {
+		padding: 18px;
+		background: {
+			color: rgba(var(--c-gray-8-rgb), 60%);
+		}
+		border: {
+			radius: var(--rd-medium);
+		}
+		> dt {
+			color: var(--c-black);
+			margin-bottom: 10px;
+			font: {
+				size: var(--fs-base);
+				weight: var(--fw-bold);
+			}
+		}
+		> dd {
+			text-align: right;
+		}
+	}
+	p {
+		@include flex(flex, null, null, center, null, null, flex-end);
+		strong,
+		span {
+			flex: none;
+		}
+	}
+	> dd {
+		strong {
+			color: var(--primary-blue);
+			font: {
+				size: var(--fs-medium);
+				weight: var(--fw-bold);
+			}
+			+ .local-price {
+				margin-left: 4px;
+			}
+		}
+		.local-price {
+			&.text {
+				margin-right: 4px;
+			}
+		}
+	}
+	em {
+		display: block;
+		color: var(--c-gray-3);
+		margin-top: 4px;
+		font: {
+			size: var(--fs-xsmall);
+			weight: var(--fw-base);
+		}
+	}
+}
+
+// * Logo
+.site-logo {
+	flex: none;
+	display: block;
+	@include bg-image-svg(common, 'ico-logo', 50% 50%, no-repeat, null, contain);
+	&.intro {
+		width: 145px;
+		height: 30px;
+	}
+	&.login {
+		width: 164px;
+		height: 34px;
+		margin-inline: auto;
+	}
+	&.main {
+		width: 106px;
+		height: 22px;
+	}
+}
+
+// * Label
+.label {
+	@include flex(inline-flex, null, null, center, null, null, center);
+	@include border(all, 1px, solid, var(--border-color, transparent), var(--rd-small, 0));
+	height: var(--label-height);
+	font: {
+		size: var(--label-font-size);
+		weight: var(--label-font-weight);
+	}
+	padding: 0 var(--label-padding);
+	&.sm {
+		--label-font-size: 11px;
+		--label-font-weight: 700;
+		--label-height: 22px;
+		--label-padding: 6px;
+	}
+	color: var(--color);
+	background: {
+		color: var(--bg-color);
+	}
+	&.primary {
+		--color: var(--c-white);
+		--bg-color: var(--primary-blue);
+	}
+	&.black {
+		--color: var(--c-white);
+		--bg-color: var(--c-black);
+	}
+	&.line-black {
+		--color: var(--c-black);
+		--bg-color: var(--c-white);
+		--border-color: var(--c-black);
+	}
+	&.line-gray {
+		--color: var(--c-black);
+		--bg-color: var(--c-white);
+		--border-color: var(--border-default);
+	}
+	&.red {
+		--color: var(--c-point-1);
+		--bg-color: rgba(var(--c-point-1-rgb), 0.12);
+	}
+}
+
+// * 로그인 유틸 메뉴
+.util-menu {
+	@include flex(flex, null, null, center, null, null, center);
+	.btn-util {
+		color: var(--c-gray-1);
+		font: {
+			size: var(--fs-base);
+			weight: var(--fw-medium);
+		}
+	}
+	li {
+		@include position(relative);
+		+ li {
+			margin-left: 16px;
+			padding-left: 18px;
+			&:before {
+				@include position(absolute, 50%, null, null, 0, null, null, -50%);
+				display: block;
+				content: '';
+				width: 2px;
+				height: 12px;
+				background: {
+					color: var(--border-default);
+				}
+			}
+		}
+	}
+}
+
+// * Tab header
+.tab-header {
+	.tab-header-item {
+		@include position(relative);
+		cursor: pointer;
+		.tab-input {
+			@include position(absolute, 0, null, null, 0, -1);
+			width: 0;
+			height: 0;
+			opacity: 0;
+		}
+	}
+	&.type1 {
+		@include flex(flex);
+		@include border(bottom, 1px, solid, var(--border-default));
+		@media screen and (max-width:768px) {
+			@media (hover: none) and (pointer: coarse) {
+				&::-webkit-scrollbar {
+					display: none;
+				}
+			}
+			flex-wrap: nowrap;
+			overflow-x: auto;
+			overflow-y: hidden;
+			.tab-header-item {
+				min-width: 100px;
+			}
+		}
+		background: {
+			color: var(--c-white);
+		}
+		.tab-header-item {
+			flex: 1 1;
+			height: 56px;
+		}
+		.tab-input {
+			&:checked {
+				+ .tab-text {
+					color: var(--primary-blue);
+					font: {
+						weight: var(--fw-bold);
+					}
+					&:after {
+						@include position(absolute, null, 0, -1px, 0, 1);
+						content: '';
+						height: 2px;
+						background: {
+							color: var(--primary-blue);
+						}
+					}
+				}
+			}
+			&:not(:checked) {
+				+ .tab-text {
+					color: rgba(var(--c-gray-3-rgb), 40%);
+					font: {
+						weight: var(--fw-medium);
+					}
+				}
+			}
+		}
+		.tab-text {
+			@include position(relative);
+			@include flex(flex, null, null, center, null, null, center);
+			height: 55px;
+			font: {
+				size: var(--fs-large);
+			}
+		}
+		&.insurance {
+			margin: {
+				top: -20px;
+				left: -20px;
+				right: -20px;
+				bottom: 20px;
+			}
+		}
+	}
+}
+
+// * 리스트 상단 검색 영역
+.list-search-area {
+	@include flex(flex);
+	gap: 8px;
+	.input,
+	.app-input-text {
+		flex: 1 1;
+	}
+	.btn {
+		flex: none;
+		width: 50px;
+		height: 50px;
+	}
+}
+.list-header {
+	.total {
+		color: var(--c-black);
+		span {
+			color: var(--primary-blue);
+		}
+	}
+}
+
+// * 검색 결과 없음
+.list-nodata {
+	@include flex(flex, column, null, center, null, null, center);
+	.ico-nodata {
+		flex: none;
+		+ .title {
+			margin-top: 16px;
+		}
+	}
+	.title {
+		color: var(--c-black);
+		text-align: center;
+		font: {
+			size: var(--fs-medium);
+			weight: var(--fw-medium);
+		}
+		+ .text {
+			margin-top: 6px;
+		}
+	}
+	.text {
+		color: var(--c-gray-3);
+		text-align: center;
+		line-height: var(--lh-150);
+	}
+	&.sm {
+		padding: 20px 0;
+	}
+	&.md {
+		padding: 60px 0;
+	}
+}
+
+// * 목록 형식
+.ul-type1 {
+	> li {
+		padding-left: 15px;
+		&:before {
+			content: '\00B7';
+			transform: translateX(3px);
+		}
+	}
+}
+.ul-type2 {
+	> li {
+		padding-left: 15px;
+		transform: translateX(1px);
+		&:before {
+			content: '-';
+		}
+	}
+}
+.ul-type3 {
+	> li {
+		padding-left: 15px;
+		&:before {
+			content: '※';
+		}
+	}
+}
+.ul-type1,
+.ul-type2,
+.ul-type3 {
+	line-height: var(--lh-150);
+	> li {
+		@include position(relative);
+		> ul {
+			margin-top: 4px;
+		}
+		&:before {
+			@include position(absolute, 0, null, null, 0);
+		}
+		&.none {
+			&:before {
+				content: none;
+			}
+		}
+		&.none-pd {
+			padding-left: 0;
+			&:before {
+				content: none;
+			}
+		}
+		&.type1 {
+			padding-left: 15px;
+			&:before {
+				content: '\00B7';
+			}
+		}
+		&.type2 {
+			padding-left: 15px;
+			&:before {
+				content: '-';
+			}
+		}
+		&.type3 {
+			padding-left: 15px;
+			&:before {
+				content: '※';
+			}
+		}
+		+ li {
+			margin-top: 4px;
+		}
+	}
+	&.fs-small {
+		li {
+			padding-left: 13px;
+		}
+	}
+	&.fs-xsmall {
+		li {
+			padding-left: 12px;
+		}
+	}
+	&.none-pd {
+		li {
+			padding: 0;
+			&:before {
+				content: none;
+			}
+		}
+	}
+}
+.ul-type1,
+.ul-type2,
+.ul-type3,
+.dl-list,
+.dl-notice {
+	&.line-top {
+		@include border(top, 1px, solid, var(--border-default));
+		padding-top: 20px;
+		margin-top: 20px;
+	}
+	&.line-bottom {
+		@include border(bottom, 1px, solid, var(--border-default));
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+	}
+}
+.dl-list {
+	@include flex(flex, null, wrap, flex-start);
+	row-gap: 8px;
+	dt {
+		flex: 1 1 30%;
+		color: var(--c-gray-3);
+	}
+	dd {
+		flex: 1 1 70%;
+		color: var(--c-gray-1);
+	}
+	&[data-direction='left'] {
+		dd {
+			text-align: left;
+		}
+	}
+	&[data-direction='right'] {
+		dd {
+			text-align: right;
+		}
+	}
+	&.shadow {
+		@include box-shadow(0, 0, 10px, rgb(0, 20, 168, 10%));
+		padding: 16px;
+		border: {
+			radius: var(--rd-medium);
+		}
+		background: {
+			color: var(--c-white);
+		}
+	}
+	&2 {
+		dt {
+			margin-bottom: 10px;
+			font: {
+				weight: var(--fw-medium);
+			}
+			&:not(:first-of-type) {
+				margin-top: 16px;
+			}
+		}
+		dd {
+			@include position(relative);
+			color: var(--c-gray-2);
+			padding-left: 10px;
+			line-height: var(--lh-150);
+			&:before {
+				@include position(absolute, 0, null, null, 0);
+				content: '\00B7';
+			}
+		}
+	}
+	&3 {
+		@extend .dl-list;
+		dt,
+		dd {
+			@include text-ellipsis;
+			&:not(:first-of-type) {
+				@include border(top, 1px, solid, var(--c-gray-8));
+				margin-top: 5px;
+				padding-top: 16px;
+			}
+		}
+		dd {
+			@include position(relative);
+			&.placeholder {
+				color: var(--c-gray-5);
+			}
+			.label {
+				transform: translateY(-3px);
+			}
+			.btn-edit2 {
+				@include position(absolute, 50%, 0, null, null, 1, null, calc(-50% + 5px));
+			}
+		}
+	}
+	&3.guest {
+		dd {
+			flex: 1 1 70% $imp;
+		}
+	}
+	&.reverse {
+		dt {
+			flex: 0 0 70%;
+		}
+		dd {
+			flex: 0 0 30%;
+		}
+	}
+}
+.dl-payment {
+	dt {
+		@include flex(flex, null, null, center);
+		.title {
+			color: var(--c-black);
+			font: {
+				weight: var(--fw-semi);
+			}
+		}
+		.price {
+			color: var(--primary-blue);
+			margin-left: auto;
+			margin-left: auto;
+			font: {
+				size: var(--fs-medium);
+			}
+		}
+	}
+	dd {
+		font: {
+			size: var(--fs-small);
+		}
+		&:not(.receipt) {
+			color: var(--c-gray-3);
+			margin-top: 6px;
+			margin-top: 4px;
+		}
+		&.receipt {
+			margin-top: 18px;
+		}
+	}
+}
+.ol-type1 {
+	padding-left: 16px;
+	line-height: var(--lh-150);
+	> li {
+		list-style: decimal;
+		+ li {
+			margin-top: 4px;
+		}
+	}
+}
+.ol-type2 {
+	padding-left: 19px;
+	line-height: var(--lh-150);
+	> li {
+		list-style: hangul;
+		+ li {
+			margin-top: 4px;
+		}
+	}
+}
+
+// * data list
+.data-list {
+	&.request {
+		@include flex(flex, column);
+		gap: 8px 0;
+		li {
+			@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+		}
+		.checkbox {
+			@include flex(flex, null, null, center);
+			padding: 0 16px;
+			height: 50px;
+			.control-text {
+				display: block;
+				width: 100%;
+				&:after {
+					top: -0.5px;
+				}
+			}
+		}
+	}
+	&.info {
+		@include flex(flex, column);
+		gap: 8px 0;
+		> div {
+			@include flex(flex, null, null, flex-start);
+			dt {
+				flex: 0 0 30%;
+				line-height: var(--lh-150);
+				color: var(--c-gray-3);
+			}
+			dd {
+				flex: 1 1 auto;
+				line-height: var(--lh-150);
+			}
+		}
+		&[data-align="right"] {
+			> div {
+				dd {
+					text-align: right;
+				}
+			}
+		}
+	}
+}
+
+// * 목적지 검색
+.destination-list {
+	li {
+		padding: 16px 0;
+		@include border(bottom, 1px, solid, var(--border-default));
+		@include position(relative);
+		.btn-destination {
+			@include position(absolute, 0, 0, 0, 0, 1);
+		}
+		> div {
+			@include position(relative);
+			padding-left: 24px;
+			&:before {
+				@include position(absolute, 50%, null, null, 0, null, null, -50%);
+				content: "";
+				display: block;
+				width: 16px;
+				height: 16px;
+				background: {
+					position: 50% 50%;
+					repeat: no-repeat;
+				}
+			}
+			&.city {
+				&:before {
+					@include bg-image-svg(common, 'ico-destination-location');
+				}
+				@include text-ellipsis;
+				color: var(--c-black);
+				font: {
+					size: var(--fs-medium);
+					weight: var(--fw-medium);
+				}
+			}
+			&.location {
+				&:before {
+					@include bg-image-svg(common, 'ico-destination-location');
+				}
+				.city {
+					@include text-ellipsis;
+					color: var(--c-black);
+					font: {
+						size: var(--fs-medium);
+						weight: var(--fw-medium);
+					}
+				}
+				.country,
+				.airport {
+					color: var(--c-gray-5);
+					font: {
+						size: var(--fs-xsmall);
+					}
+				}
+			}
+			&.default,
+			&.station,
+			&.airport {
+				@include text-ellipsis;
+				&:before {
+					@include bg-image-svg(common, 'ico-destination-airport');
+				}
+				color: var(--c-gray-5);
+				.name {
+					color: var(--c-black);
+				}
+				.name2 {
+					color: var(--c-gray-5);
+					margin-left: 4px;
+				}
+				font: {
+					size: var(--fs-medium);
+					weight: var(--fw-medium);
+				}
+			}
+			.focus {
+				color: var(--primary-blue);
+			}
+		}
+	}
+}
+// * 항공사 로고
+.icon-airline {
+	width: auto;
+	vertical-align: middle;
+	+ .airline-name {
+		vertical-align: middle;
+	}
+	&.sm {
+		height: 12px;
+		+ .airline-name {
+			margin-left: 3px;
+		}
+	}
+	&.md {
+		height: 22px;
+		+ .airline-name {
+			margin-left: 6px;
+		}
+	}
+}
+// * 공통 로딩
+.common-loading {
+	@include flex(flex, column, null, center, null, null, center);
+	.icon-spinner {
+		flex: none;
+		+ .title {
+			margin-top: 16px;
+		}
+	}
+	.title {
+		text-align: center;
+		font: {
+			size: var(--fs-medium);
+			weight: var(--fw-medium);
+		}
+	}
+	&.full {
+		@include position(fixed, 0, 0, 0, 50%, 20000, -50%);
+		padding: 20px;
+		width: 100%;
+		max-width: var(--body-max-width);
+		background: {
+			color: var(--c-white);
+		}
+	}
+	&.result {
+		padding: 60px 20px;
+		.icon-spinner {
+			width: 32px;
+			height: 32px;
+		}
+	}
+}

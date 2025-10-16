@@ -1,0 +1,1485 @@
+// * main
+.main-visual {
+	@include position(relative, null, null, null, null, 1);
+	height: 420px;
+	padding-top: 40px;
+	background: {
+		position: center bottom 70px;
+		color: var(--default-bg);
+		size: contain;
+		repeat: no-repeat;
+		image: url($base-image-url + 'img-main.png');
+	}
+	h1 {
+		text-align: center;
+		line-height: var(--lh-120);
+		font: {
+			size: 32px;
+			weight: var(--fw-light);
+		}
+	}
+}
+
+.main-menu {
+	@include flex(flex);
+	@include position(relative, null, null, null, null, 2, null, -50%);
+	padding: 0 20px;
+	margin-bottom: -55px;
+	gap: 0 10px;
+	li {
+		flex: 1 1;
+	}
+	.menu-item {
+		@include flex(flex, column, null, center, null, null, center);
+		width: 100%;
+		height: 110px;
+		box-shadow: 0px 4px 8px 0px rgba(var(--c-black-rgb), 0.078);
+		backdrop-filter: blur(4px);
+		border: 1px solid rgba(var(--c-white-rgb), 0.6);
+		background: {
+			color: rgba(var(--c-white-rgb), 0.251);
+		}
+		border: {
+			radius: var(--rd-large);
+		}
+		.menu {
+			width: 40px;
+			height: 40px;
+			margin-bottom: 12px;
+			&.m1 {
+				@include bg-image-svg(icons, 'ico-menu1', 50% 50%, no-repeat, null, 36px auto);
+			}
+			&.m2 {
+				@include bg-image-svg(icons, 'ico-menu2', 50% 50%, no-repeat, null, 40px auto);
+			}
+			&.m3 {
+				@include bg-image-svg(icons, 'ico-menu3', 50% 50%, no-repeat, null, 40px auto);
+			}
+		}
+	}
+}
+
+.main-contents {
+	margin: 24px 0;
+	padding: 0 20px;
+}
+
+.main-faq-list-item {
+	@include border(all, 1px, solid, var(--border-default), var(--rd-large));
+	margin-top: 12px;
+	.main-faq-list-item-header {
+		@include flex(flex, null, null, center);
+		@include position(relative);
+		min-height: 56px;
+		padding: 16px 40px 16px 16px;
+		cursor: pointer;
+		gap: 0 16px;
+		&:after {
+			@include position(absolute, 50%, 16px, null, null, null, null, -50%);
+			content: '';
+			flex: none;
+			width: 24px;
+			height: 24px;
+		}
+		.title {
+			@include text-ellipsis;
+			&:before {
+				content: "Q.";
+				margin-right: 8px;
+				font: {
+					weight: var(--fw-bold);
+				}
+			}
+		}
+		.date {
+			color: var(--c-gray-4);
+			margin-top: 4px;
+			font: {
+				size: var(--fs-xsmall);
+			}
+		}
+	}
+	&:not([open]) {
+		.main-faq-list-item-header {
+			.title {
+				color: var(--c-black);
+				font: {
+					size: var(--fs-large);
+					weight: var(--fw-medium);
+				}
+			}
+			&:after {
+				@include bg-image-svg(common, 'ico-accordion-default', 50% 50%, no-repeat);
+			}
+		}
+	}
+	&[open] {
+		.main-faq-list-item-header {
+			.title {
+				color: var(--primary-blue);
+				font: {
+					size: var(--fs-large);
+					weight: var(--fw-bold);
+				}
+			}
+			&:after {
+				@include bg-image-svg(common, 'ico-accordion-active', 50% 50%, no-repeat);
+			}
+		}
+		.main-faq-list-item-body {
+			@include border(top, 1px, solid, var(--border-default));
+		}
+	}
+	.main-faq-list-item-body {
+		padding: 16px;
+		line-height: var(--lh-150);
+		font: {
+			size: var(--fs-base);
+			weight: var(--fw-medium);
+		}
+		background: {
+			color: var(--default-bg);
+		}
+	}
+}
+
+.contents-box {
+	background: {
+		color: var(--c-white);
+	}
+	&.type1 {
+		padding: 20px 20px 32px;
+	}
+	&.type2 {
+		padding: 32px 20px;
+	}
+	&.line {
+		@include position(relative);
+		margin-top: 8px;
+		&:before {
+			@include position(absolute, -8px, 0, 0, 0, 1);
+			content: '';
+			height: 8px;
+			background: {
+				color: rgba(var(--default-bg-rgb), 80%);
+			}
+		}
+	}
+	&.shadow {
+		padding: 16px;
+		box-shadow: 0px 5px 22px 0px rgba(var(--c-black-rgb), 0.08);
+		border: {
+			radius: var(--rd-medium);
+		}
+	}
+	&.bordered {
+		@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+		padding: 16px;
+	}
+	&.default {
+		@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+		overflow: hidden;
+	}
+}
+
+.contents-msg {
+	text-align: center;
+	.icon {
+		margin-bottom: 10px;
+	}
+	.title {
+		color: var(--c-black);
+		line-height: var(--lh-150);
+		font: {
+			size: var(--fs-black);
+			weight: var(--fw-medium);
+		}
+		+ .text {
+			margin-top: 8px;
+		}
+	}
+	.text {
+		color: var(--c-gray-3);
+		line-height: var(--lh-150);
+	}
+}
+
+// * agreement
+.agreement-area {
+	.agree-title {
+		color: var(--c-black);
+		font: {
+			size: var(--fs-extra);
+			weight: var(--fw-bold);
+		}
+	}
+	li {
+		+ li:not(.all) {
+			margin-top: 10px;
+		}
+		&.check {
+			@include flex(flex, null, null, flex-start);
+			.checkbox {
+				flex: none;
+				margin-right: 8px;
+			}
+			.agree-text {
+				line-height: var(--lh-140);
+				font: {
+					size: var(--fs-medium);
+					weight: var(--fw-medium);
+				}
+				.underline {
+					font: {
+						weight: var(--fw-medium);
+					}
+				}
+			}
+		}
+		&.all {
+			@include border(bottom, 1px, solid, var(--c-gray-8));
+			margin-bottom: 16px;
+			padding-bottom: 16px;
+		}
+	}
+}
+
+// * 공지사항 FAQ 리스트 아이템
+.customer-list-item {
+	@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+	margin-top: 12px;
+	.customer-list-item-header {
+		@include flex(flex, null, null, center);
+		@include position(relative);
+		min-height: 56px;
+		padding: 16px 40px 16px 16px;
+		cursor: pointer;
+		gap: 0 8px;
+		&:after {
+			@include position(absolute, 50%, 16px, null, null, null, null, -50%);
+			content: '';
+			flex: none;
+			width: 24px;
+			height: 24px;
+		}
+		.label {
+			flex: none;
+		}
+		.text {
+			min-width: 0;
+		}
+		.title {
+			@include text-ellipsis;
+			color: var(--c-black);
+			font: {
+				size: var(--fs-base);
+				weight: var(--fw-medium);
+			}
+		}
+		.date {
+			color: var(--c-gray-4);
+			margin-top: 4px;
+			font: {
+				size: var(--fs-xsmall);
+			}
+		}
+	}
+	&:not([open]) {
+		.customer-list-item-header {
+			&:after {
+				@include bg-image-svg(common, 'ico-accordion-default', 50% 50%, no-repeat);
+			}
+		}
+	}
+	&[open] {
+		.customer-list-item-header {
+			&:after {
+				@include bg-image-svg(common, 'ico-accordion-active', 50% 50%, no-repeat);
+			}
+		}
+		.customer-list-item-body {
+			@include border(top, 1px, solid, var(--border-default));
+		}
+	}
+	.customer-list-item-body {
+		padding: 16px;
+		line-height: var(--lh-150);
+		font: {
+			size: var(--fs-base);
+			weight: var(--fw-base);
+		}
+	}
+}
+
+// * 문의하기 리스트 아이템
+.qna-list-item {
+	@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+	@include position(relative);
+	overflow: hidden;
+	margin-top: 12px;
+	.view {
+		@include position(absolute, 0, 0, 0, 0);
+	}
+	.qna-list-item-header {
+		@include flex(flex, null, null, center);
+		padding: 16px;
+		background: {
+			color: #F7F8FA;
+		}
+		.label {
+			flex: none;
+			margin-left: auto;
+		}
+		.text {
+			font: {
+				size: var(--fs-small);
+			}
+		}
+	}
+	.qna-list-item-body {
+		padding: 16px;
+		.title {
+			@include text-ellipsis;
+			color: var(--c-black);
+			margin-bottom: 16px;
+			font: {
+				size: var(--fs-extra);
+				weight: var(--fw-medium);
+			}
+		}
+		dl {
+			div {
+				@include flex(flex, null, null, flex-start);
+				+ div {
+					margin-top: 10px;
+				}
+				dt {
+					flex: 1 1 30%;
+					color: var(--c-gray-3);
+				}
+				dd {
+					flex: 1 1 70%;
+				}
+			}
+		}
+	}
+}
+.qna-item-header {
+	@include flex(flex, null, null, center, null, null, space-between);
+	.resv-num {
+		color: var(--c-gray-3);
+		font: {
+			size: var(--fs-small);
+		}
+	}
+}
+.qna-item-body {
+	margin-top: 12px;
+	.title {
+		@include text-ellipsis;
+		color: var(--c-black);
+		margin-bottom: 14px;
+		font: {
+			size: var(--fs-extra);
+			weight: var(--fw-medium);
+		}
+	}
+}
+// * 고객문의 상세
+.qna-question {
+	@include position(relative);
+	.question {
+		@include position(absolute, 0, null, null, 0);
+	}
+	.text {
+		color: var(--c-black);
+		padding-left: 30px;
+		line-height: var(--lh-150);
+	}
+}
+.qna-answer {
+	@include position(relative);
+	@include flex(flex, column, null, flex-start);
+	padding: 16px 16px 16px 44px;
+	margin-top: 20px;
+	background: {
+		color: #fafbfc;
+	}
+	border: {
+		radius: var(--rd-medium);
+	}
+	.text {
+		color: var(--c-black);
+		line-height: var(--lh-150);
+	}
+	.date {
+		color: var(--c-gray-3);
+		margin-top: 20px;
+	}
+	.answer {
+		@include position(absolute, 16px, null, null, 16px);
+	}
+}
+
+// * 출장 신청하기
+.apply-accordion {
+	background: {
+		color: var(--c-white);
+	}
+	&:after {
+		content: "";
+		display: block;
+		height: 8px;
+		background: {
+			color: var(--default-bg);
+		}
+	}
+	.apply-accordion-header {
+		@include position(relative);
+		@include text-ellipsis;
+		padding: 16px 20px;
+		cursor: pointer;
+		color: var(--c-black);
+		&:after {
+			@include position(absolute, 50%, 16px, null, null, null, null, -50%);
+			content: '';
+			flex: none;
+			width: 24px;
+			height: 24px;
+		}
+		font: {
+			size: var(--fs-extra);
+			weight: var(--fw-bold);
+		}
+	}
+	&:not([open]) {
+		.apply-accordion-header {
+			&:after {
+				@include bg-image-svg(common, 'ico-accordion-default', 50% 50%, no-repeat);
+			}
+		}
+	}
+	&[open] {
+		.apply-accordion-header {
+			&:after {
+				@include bg-image-svg(common, 'ico-accordion-active', 50% 50%, no-repeat);
+			}
+		}
+	}
+	.apply-accordion-body {
+		padding: 0 20px 16px;
+	}
+}
+// * 출장 신청하기 - 각 섹션
+.traveler-box {
+	@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+	padding: 16px;
+	margin-top: 12px;
+}
+.flight-box {
+	@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+	padding: 16px;
+	&:not(:first-child) {
+		margin-top: 12px;
+	}
+	ul {
+		@include flex(flex, column);
+		gap: 8px 0;
+		li {
+			&:first-child {
+				margin-bottom: 8px;
+			}
+		}
+	}
+	.flight-schedule-search {
+		.schedule-wrap {
+			@include position(relative);
+			@include flex(flex);
+			--gap: 2px;
+			overflow: hidden;
+			gap: var(--gap);
+			border: {
+				radius: var(--rd-medium);
+			}
+			background: {
+				color: var(--c-white);
+			}
+      &.valid-error {
+        border: {
+          color: var(--border-valid);
+          style: solid;
+          width: 1px;
+          radius: var(--rd-medium);
+        }
+      }
+			.schedule-column {
+				@include flex(flex, column, null, center, null, null, center);
+				overflow: hidden;
+				flex: 1 1;
+				height: 88px;
+				padding: 0 16px;
+				background: {
+					color: rgba(var(--default-bg-rgb), 60%);
+				}
+				&.default {
+					.airport {
+						color: rgba(var(--c-gray-3-rgb), 40%);
+					}
+				}
+				.title {
+					color: var(--primary-blue);
+					font: {
+						size: var(--fs-small);
+						weight: var(--fw-bold);
+					}
+					+ .airport {
+						margin-top: 4px;
+					}
+				}
+				.airport {
+					color: var(--c-black);
+					font: {
+						size: var(--fs-black);
+						weight: var(--fw-bold);
+					}
+				}
+				.title,
+				.airport {
+					@include text-ellipsis;
+					display: block;
+					width: 100%;
+					text-align: center;
+				}
+			}
+		}
+		.btn-change {
+			@include position(absolute, 50%, null, null, 50%, 2, -50%, -50%);
+			width: 36px;
+			height: 36px;
+			text-indent: -9999em;
+      z-index: 1;
+			&:disabled {
+				@include bg-image-set(icons, 'btn-flight-oneway-disabled', 50% 50%, no-repeat);
+			}
+			&:not(:disabled) {
+				@include bg-image-set(icons, 'btn-flight-oneway-default', 50% 50%, no-repeat);
+			}
+		}
+	}
+}
+.lodge-box {
+	@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+	&:not(:first-child) {
+		margin-top: 12px;
+	}
+	.lodge-inner {
+		padding: 16px;
+		+ .lodge-inner {
+			@include border(top, 1px, solid, var(--border-default));
+		}
+	}
+	.count {
+		@include flex(flex, column);
+		gap: 8px 0;
+		margin-top: 8px;
+	}
+}
+// * 출장 신청 리스트 아이템
+.receive-list-item {
+	@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+	@include position(relative);
+	overflow: hidden;
+	margin-top: 12px;
+	.view {
+		@include position(absolute, 0, 0, 0, 0);
+	}
+	.receive-list-item-header {
+		@include flex(flex, null, null, center);
+		padding: 16px;
+		gap: 0 8px;
+		background: {
+			color: #F7F8FA;
+		}
+		.label {
+			flex: none;
+		}
+		.text {
+			font: {
+				size: var(--fs-small);
+			}
+		}
+	}
+	.receive-list-item-body {
+		padding: 16px;
+		.subject {
+			margin-bottom: 4px;
+			font: {
+				size: var(--fs-small);
+			}
+		}
+		.title {
+			@include text-ellipsis;
+			color: var(--c-black);
+			margin-bottom: 16px;
+			font: {
+				size: var(--fs-extra);
+				weight: var(--fw-medium);
+			}
+		}
+		dl {
+			div {
+				@include flex(flex, null, null, flex-start);
+				+ div {
+					margin-top: 10px;
+				}
+				dt {
+					flex: 0 0 60px;
+					color: var(--c-gray-3);
+				}
+				dd {
+					flex: 1 1;
+					text-align: right;
+				}
+			}
+		}
+	}
+}
+// * 예약내역 리스트 아이템
+.reservation-list-item {
+	@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+	@include position(relative);
+	overflow: hidden;
+	margin-top: 12px;
+	.view {
+		@include position(absolute, 0, 0, 0, 0);
+	}
+	.reservation-list-item-header {
+		@include flex(flex, null, null, center);
+		padding: 16px;
+		gap: 0 8px;
+		background: {
+			color: #F7F8FA;
+		}
+		.text {
+			font: {
+				size: var(--fs-small);
+			}
+		}
+		.btn-arrow-text {
+			margin-left: auto;
+		}
+	}
+	.reservation-list-item-body {
+		padding: 16px;
+		.label-group {
+			@include flex(flex);
+			gap: 0 4px;
+			margin-bottom: 6px;
+		}
+		.title {
+			@include text-ellipsis;
+			color: var(--c-black);
+			margin-bottom: 16px;
+			font: {
+				size: var(--fs-extra);
+				weight: var(--fw-medium);
+			}
+		}
+		dl {
+			div {
+				@include flex(flex, null, null, flex-start);
+				+ div {
+					margin-top: 10px;
+				}
+				dt {
+					flex: 0 0 60px;
+					color: var(--c-gray-3);
+				}
+				dd {
+					flex: 1 1;
+					text-align: right;
+				}
+			}
+		}
+		.price {
+			margin: 12px 0;
+			text-align: right;
+			font: {
+				size: var(--fs-black);
+				weight: var(--fw-bold);
+			}
+			&.cancel {
+				color: var(--c-gray-5) !important;
+				text-decoration: line-through;
+				text-decoration-thickness: 2px;
+				text-decoration-color: rgba(var(--c-point-1-rgb), 35%);
+			}
+		}
+	}
+}
+
+// * 리스트 검색 조건
+.list-search-filter {
+	margin-bottom: 20px;
+	.list-search-filter-header {
+		@include border(bottom, 1px, solid, var(--border-default));
+		@include position(relative);
+		@include flex(flex);
+		&:after {
+			@include position(absolute, 50%, 0, null, null, null, null, calc(-50% - 9px));
+			content: '';
+			flex: none;
+			width: 24px;
+			height: 24px;
+		}
+		padding: {
+			right: 28px;
+			bottom: 20px;
+		}
+		font: {
+			size: var(--fs-large);
+		}
+		span {
+			flex: none;
+			color: var(--c-gray-2);
+			margin-left: auto;
+		}
+	}
+	&:not([open]) {
+		.list-search-filter-header {
+			&:after {
+				@include bg-image-svg(common, 'ico-accordion-default', 50% 50%, no-repeat);
+			}
+		}
+	}
+	&[open] {
+		.list-search-filter-header {
+			&:after {
+				@include bg-image-svg(common, 'ico-accordion-active', 50% 50%, no-repeat);
+			}
+		}
+	}
+	.list-search-filter-body {
+		@include border(bottom, 1px, solid, var(--border-default));
+		padding: 20px 0;
+		.list-search-area {
+			margin-top: 8px;
+		}
+	}
+}
+
+// * 예약상세 상단 버튼 영역
+.reservation-button-area {
+	@include flex(flex, null, wrap, flex-start);
+	@include border(bottom, 1px, solid, var(--c-gray-8));
+	--gap: 10px;
+	gap: var(--gap);
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	> .btn {
+		flex: 0 0 calc((100% - var(--gap) * 2) / 3);
+	}
+}
+
+// * 예약상세 컨텐츠
+.reservation-contents {
+	margin-top: 20px;
+	> .manager {
+		@include flex(flex, null, null, center, null, null, space-between);
+		margin: 12px 0;
+		color: var(--c-gray-3);
+	}
+	.contents-title {
+		@include flex(flex, null, null, center);
+		strong {
+			font: {
+				size: var(--fs-medium);
+			}
+		}
+		.btn-edit {
+			margin-left: auto;
+		}
+	}
+	// * 취소마감일
+	.cancel-deadline {
+		@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+		margin-top: 12px;
+		dt {
+			@include flex(flex, null, null, center);
+			@include border(bottom, 1px, solid, var(--border-default));
+			padding: 12px 16px;
+			.label {
+				flex: none;
+				margin-right: 6px;
+			}
+			font: {
+				weight: var(--fw-medium);
+			}
+		}
+		dd {
+			padding: 16px;
+		}
+	}
+	.contents-box {
+		margin-top: 12px;
+	}
+	// * 예약자 정보 입력 내 탑승, 숙박 인원
+	.guest-list {
+		@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+		overflow: hidden;
+		margin-top: 12px;
+		.guest-item {
+			> dt {
+				@include flex(flex, null, null, center);
+				height: 48px;
+				padding: 0 16px;
+				background: {
+					color: #f7f8fa;
+				}
+				strong {
+					font: {
+						weight: var(--fw-medium);
+					}
+				}
+				span {
+					@include position(relative);
+					color: rgba(var(--c-black-rgb), 40%);
+					margin-left: 20px;
+					&:before {
+						@include position(absolute, 50%, null, null, -10px, null, null, -50%);
+						content: '';
+						width: 1px;
+						height: 14px;
+						background: {
+							color: var(--c-gray-6);
+						}
+					}
+				}
+			}
+			> dd {
+				padding: 16px;
+			}
+			.dl-list {
+				&:not(:first-of-type) {
+					@include border(top, 1px, solid, var(--c-gray-8));
+					margin-top: 12px;
+					padding-top: 12px;
+				}
+			}
+			.form-type1 {
+				&:not(:first-child) {
+					@include border(top, 1px, solid, var(--c-gray-8));
+					margin-top: 18px;
+					padding-top: 18px;
+				}
+			}
+		}
+	}
+	.payment-accordion {
+		@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+		margin-top: 12px;
+		.payment-accordion-header {
+			@include flex(flex, null, null, center);
+			@include position(relative);
+			min-height: 56px;
+			padding: 16px 40px 16px 16px;
+			cursor: pointer;
+			gap: 0 16px;
+			&:after {
+				@include position(absolute, 50%, 16px, null, null, null, null, -50%);
+				content: '';
+				flex: none;
+				width: 24px;
+				height: 24px;
+			}
+			.label {
+				flex: none;
+			}
+			.text {
+				min-width: 0;
+			}
+			.title {
+				@include text-ellipsis;
+				color: var(--c-black);
+				font: {
+					size: var(--fs-base);
+					weight: var(--fw-medium);
+				}
+			}
+			.date {
+				color: var(--c-gray-4);
+				margin-top: 4px;
+				font: {
+					size: var(--fs-xsmall);
+				}
+			}
+		}
+		&:not([open]) {
+			.payment-accordion-header {
+				&:after {
+					@include bg-image-svg(common, 'ico-accordion-default', 50% 50%, no-repeat);
+				}
+			}
+		}
+		&[open] {
+			.payment-accordion-header {
+				&:after {
+					@include bg-image-svg(common, 'ico-accordion-active', 50% 50%, no-repeat);
+				}
+			}
+			.payment-accordion-body {
+				@include border(top, 1px, solid, var(--border-default));
+			}
+		}
+		.payment-accordion-body {
+			padding: 16px;
+			line-height: var(--lh-150);
+			font: {
+				size: var(--fs-base);
+				weight: var(--fw-base);
+			}
+		}
+		.payment-group {
+			&:not(:first-child) {
+				@include border(top, 1px, solid, var(--border-default));
+				margin-top: 16px;
+				padding-top: 16px;
+			}
+			.btn {
+				margin-top: 12px;
+			}
+		}
+	}
+	// * 항공 예약상세
+	.traveler-accordion {
+		.traveler-accordion-header {
+			@include flex(flex, null, null, center);
+			@include position(relative);
+			padding: 0 16px;
+			height: 48px;
+			background: {
+				color: #f7f8fa;
+			}
+			&:after {
+				@include position(absolute, 50%, 0, null, null, null, null, -50%);
+				content: '';
+				flex: none;
+				width: 24px;
+				height: 24px;
+			}
+			strong {
+				font: {
+					weight: var(--fw-medium);
+				}
+			}
+			span {
+				@include position(relative);
+				color: rgba(var(--c-black-rgb), 40%);
+				margin-left: 20px;
+				&:before {
+					@include position(absolute, 50%, null, null, -10px, null, null, -50%);
+					content: '';
+					width: 1px;
+					height: 14px;
+					background: {
+						color: var(--c-gray-6);
+					}
+				}
+			}
+			&:after {
+				transform: translate(-16px, -50%);
+			}
+		}
+		&:not([open]) {
+			.traveler-accordion-header {
+				&:after {
+					@include bg-image-svg(common, 'ico-accordion-default', 50% 50%, no-repeat);
+				}
+			}
+		}
+		&[open] {
+			.traveler-accordion-header {
+				&:after {
+					@include bg-image-svg(common, 'ico-accordion-active', 50% 50%, no-repeat);
+				}
+			}
+		}
+		.traveler-accordion-body {
+			padding: 16px;
+			.dl-list {
+				dd {
+					flex: 1 1 50%;
+				}
+			}
+		}
+		+ .traveler-accordion {
+			@include border(top, 1px, solid, var(--border-default));
+		}
+		&:not([open]) {
+			+ .btn-area {
+				margin-top: 16px;
+			}
+		}
+	}
+}
+// * 숙박 예약 완료 summary
+.lodge-booking-summary {
+	@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+	overflow: hidden;
+	.label-area {
+		@include flex(flex, null, null, center, null, null, center);
+		gap: 0 4px;
+	}
+	.lodge-image {
+		@include bg-multiple(false, cover, var(--c-gray-7));
+		aspect-ratio: 1/0.4299;
+	}
+	.label-area {
+		justify-content: center;
+		margin-bottom: 8px;
+	}
+	.booking-main-info {
+		@include border(bottom, 1px, solid, var(--border-default));
+		margin-bottom: 18px;
+		padding-bottom: 18px;
+		text-align: center;
+		dt {
+			color: var(--c-black);
+			font: {
+				size: var(--fs-black);
+				weight: var(--fw-medium);
+			}
+		}
+		dd {
+			color: var(--c-gray-5);
+			margin-top: 4px;
+		}
+	}
+	.booking-info {
+		padding: 16px;
+	}
+	.cancel-deadline-inline {
+		margin-top: 18px;
+	}
+}
+// * 항공 예약 summary
+.flight-booking-summary {
+	@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+	overflow: hidden;
+	&-schedule {
+		> p {
+			@include border(bottom, 1px, solid, var(--border-default));
+			margin: 4px 0 10px;
+			padding-bottom: 10px;
+			font: {
+				size: var(--fs-small);
+			}
+		}
+		.schedule-wrap {
+			@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+			overflow: hidden;
+			margin-top: 10px;
+			.util {
+				padding: 0 16px 16px;
+			}
+			.comm-total-price {
+				dt {
+					@include flex(inline-flex, null, null, center);
+				}
+			}
+			.btn-price-detail {
+				@include bg-image-set(icons, ico-list-notice, 50% 50%, no-repeat);
+				display: inline-block;
+				flex: none;
+				width: 14px;
+				height: 14px;
+				vertical-align: middle;
+				text-indent: -999em;
+				margin-left: 4px;
+			}
+		}
+	}
+	.booking-main-info {
+		@include border(bottom, 1px, solid, var(--border-default));
+		padding: 2px 0 18px;
+		margin-bottom: 18px;
+		text-align: center;
+		dt {
+			@include flex(flex, null, null, center, null, null, center);
+			gap: 4px;
+		}
+		dd {
+			color: var(--c-black);
+			margin-top: 6px;
+			font: {
+				size: var(--fs-black);
+				weight: var(--fw-medium);
+			}
+		}
+	}
+	.booking-info {
+		padding: 16px;
+	}
+}
+// * 항공 일정
+.flight-schedule-item {
+	@include border(all, 1px, solid, var(--border-default), var(--rd-medium));
+	overflow: hidden;
+	margin-top: 12px;
+	&-header {
+		.title {
+			@include flex(flex, null, null, center);
+			padding: 0 16px;
+			height: 52px;
+			color: var(--c-white);
+			font: {
+				weight: var(--fw-medium);
+			}
+		}
+		.item-summary {
+			padding: 20px 16px;
+		}
+		.item-route {
+			@include flex(flex, null, null, center);
+			margin-bottom: 10px;
+			strong {
+				color: var(--c-black);
+				font: {
+					weight: var(--fw-medium);
+				}
+				&:last-of-type {
+					@include text-ellipsis;
+				}
+				&:not(:last-of-type) {
+					flex: none;
+				}
+			}
+			.icon-flight-schedule-arrow {
+				@include bg-image-set(icons, ico-flight-schedule-arrow, 50% 50%, no-repeat);
+				display: inline-block;
+				flex: none;
+				margin: 0 6px;
+				width: 12px;
+				height: 12px;
+			}
+		}
+		.item-schedule {
+			@include flex(flex, null, null, center);
+			padding: 10px 12px;
+			border: {
+				radius: var(--rd-small);
+			}
+			background: {
+				color: rgba(var(--c-gray-7-rgb), 40%);
+			}
+			span {
+				@include flex(flex, null, null, center);
+				flex: none;
+				color: var(--c-gray-3);
+				font: {
+					size: var(--fs-small);
+				}
+				+ span {
+					@include position(relative);
+					margin-left: 14px;
+					padding-left: 14px;
+					&:before {
+						@include position(absolute, 50%, null, null, 0, null, null, -50%);
+						content: '';
+						width: 1px;
+						height: 14px;
+						background: {
+							color: var(--c-gray-5);
+						}
+					}
+				}
+			}
+		}
+	}
+	&[open] {
+		.flight-schedule-item-header {
+			.title {
+				@include bg-image-set(icons,
+					'ico-flight-schedule-accordion-active',
+					right 12px center,
+					no-repeat,
+					var(--primary-blue));
+			}
+		}
+	}
+	&:not([open]) {
+		.flight-schedule-item-header {
+			.title {
+				@include bg-image-set(icons,
+					'ico-flight-schedule-accordion-default',
+					right 12px center,
+					no-repeat,
+					var(--c-gray-3));
+			}
+		}
+	}
+	&-body {
+		padding: 0 16px 20px;
+	}
+	.itinerary-item {
+		@include flex(flex, null, null, flex-start);
+		@include position(relative);
+		--before-size: 13px;
+		--before-top: 4px;
+		--left: 70px;
+		--gap: 40px;
+		gap: var(--gap);
+		&:before,
+		&:after {
+			@include position(absolute, null, null, null, null, 1);
+		}
+		&:before {
+			@include border(all, 2px, solid, var(--c-white), var(--rd-full));
+			@include box-shadow(0, 2px, 5px, rgba(var(--primary-blue-rgb), 14%));
+			top: var(--before-top);
+			left: calc(var(--left) + (var(--gap) / 2) - (var(--before-size) / 2));
+			content: '';
+			width: var(--before-size);
+			height: var(--before-size);
+			background: {
+				color: var(--primary-blue);
+			}
+		}
+		&:after {
+			top: calc(var(--before-size) + var(--before-top));
+			bottom: calc((var(--before-top) * -1));
+			left: calc(var(--left) + (var(--gap) / 2));
+			content: '';
+			width: 0;
+		}
+		&:not(.layover) {
+			&:after {
+				@include border(left, 1px, solid, var(--border-default));
+			}
+		}
+		&.layover {
+			&:after {
+				@include border(left, 1px, dashed, var(--border-default));
+			}
+		}
+		&:not(:nth-last-of-type(1)) {
+			padding-bottom: 18px;
+		}
+		&:nth-last-of-type(1) {
+			&:after {
+				content: none;
+			}
+		}
+		.itinerary {
+			flex: 0 0 var(--left);
+			padding-top: calc(var(--before-top) - 2px);
+			.time {
+				font: {
+					size: var(--fs-small);
+					weight: var(--fw-medium);
+				}
+			}
+			.date {
+				color: var(--c-gray-3);
+				margin-top: 3px;
+			}
+			.total {
+				@include position(absolute, 50%, null, null, 0);
+				color: var(--c-gray-3);
+			}
+			.date,
+			.total {
+				font: {
+					size: var(--fs-xsmall);
+				}
+			}
+		}
+		.information {
+			flex: 1 1 auto;
+			.airport {
+				margin: 5px 0;
+				color: var(--c-black);
+				font: {
+					weight: var(--fw-medium);
+				}
+			}
+			.airline-option {
+				@include flex(flex, null, wrap, flex-start);
+				margin-top: 8px;
+				gap: 4px 8px;
+				span {
+					@include flex(inline-flex, null, null, center);
+					flex: none;
+					color: var(--c-gray-2);
+					font: {
+						size: var(--fs-xsmall);
+					}
+					&:before {
+						display: inline-block;
+						flex: none;
+						content: '';
+						width: 16px;
+						height: 16px;
+						margin-right: 4px;
+					}
+					&.meal {
+						&:before {
+							@include bg-image-set(icons, 'ico-airline-option-meal', 50% 50%, no-repeat);
+						}
+					}
+					&.wifi {
+						&:before {
+							@include bg-image-set(icons, 'ico-airline-option-wifi', 50% 50%, no-repeat);
+						}
+					}
+					&.socket {
+						&:before {
+							@include bg-image-set(icons, 'ico-airline-option-socket', 50% 50%, no-repeat);
+						}
+					}
+					&.vod {
+						&:before {
+							@include bg-image-set(icons, 'ico-airline-option-vod', 50% 50%, no-repeat);
+						}
+					}
+				}
+			}
+			.airline-detail {
+				.airline {
+					line-height: var(--lh-150);
+					+ :not(.airline) {
+						margin-top: 8px;
+					}
+					&:has(.code-share) {
+						.airline-name {
+							margin-right: 4px;
+						}
+					}
+				}
+				li {
+					&:not(.airline) {
+						color: var(--c-gray-2);
+						font: {
+							size: var(--fs-xsmall);
+						}
+						+ :not(.airline) {
+							margin-top: 4px;
+						}
+					}
+				}
+			}
+			.stop-airports {
+				padding: 10px 12px;
+				color: var(--c-gray-3);
+				margin-top: 8px;
+				border: {
+					radius: var(--rd-small);
+				}
+				background: {
+					color: rgba(var(--c-gray-7-rgb), 40%);
+				}
+				font: {
+					size: var(--fs-xxsmall);
+				}
+				li {
+					+ li {
+						margin-top: 2px;
+					}
+				}
+			}
+			.airport-option {
+				li {
+					@include flex(flex, null, null, center);
+					color: var(--c-gray-2);
+					font: {
+						size: var(--fs-xsmall);
+					}
+					&:before {
+						display: inline-block;
+						flex: none;
+						content: '';
+						width: 16px;
+						height: 16px;
+						margin-right: 4px;
+					}
+					+ li {
+						margin-top: 4px;
+					}
+					&.transfer {
+						&:before {
+							@include bg-image-set(icons, ico-flight-transfer, 50% 50%, no-repeat, null, contain);
+						}
+					}
+					&.luggage {
+						&:before {
+							@include bg-image-set(icons, ico-flight-luggage, 50% 50%, no-repeat, null, contain);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// * 약관 영역
+.agreement-contents {
+	line-height: var(--lh-150);
+	.agreement-date {
+		color: var(--c-gray-3);
+		margin-bottom: 20px;
+		text-align: right;
+		font: {
+			size: var(--fs-small);
+		}
+	}
+	.agreement-title-top {
+		color: var(--c-black);
+		margin-bottom: 10px;
+		font: {
+			size: var(--fs-extra);
+			weight: var(--fw-medium);
+		}
+		&:not(:first-of-type) {
+			margin-top: 20px;
+		}
+	}
+	.agreement-title {
+		color: var(--c-black);
+		margin-bottom: 10px;
+		font: {
+			size: var(--fs-large);
+			weight: var(--fw-medium);
+		}
+	}
+	.agreement-title2 {
+		color: var(--c-black);
+		margin-bottom: 5px;
+		font: {
+			weight: var(--fw-medium);
+		}
+	}
+	> div,
+	.ol-type1,
+	.ol-type2,
+	.ul-type1,
+	.ul-type2,
+	.ul-type3 {
+		color: var(--c-gray-2);
+	}
+	.ul-type1 {
+		+ .agreement-title2 {
+			margin-top: 16px;
+		}
+	}
+	.agreement-group {
+		+ .agreement-group {
+			margin-top: 20px;
+		}
+		+ .agreement-title-top {
+			margin-top: 30px;
+		}
+	}
+	.underline {
+		color: var(--c-black);
+	}
+}

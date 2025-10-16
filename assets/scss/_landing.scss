@@ -1,0 +1,124 @@
+#landing {
+	@include flex(flex, column);
+	min-height: 100svh;
+	background: {
+		color: #DBE3F0;
+	}
+	.landing-content {
+		padding: 40px 0 20px;
+		flex: 1 1;
+		@include flex(flex, column, null, center, null, null, center);
+	}
+	.swiper {
+		width: 100%;
+		max-width: var(--body-max-width);
+		--swiper-pagination-bottom: 0;
+	}
+	.landing-title,
+	.landing-text {
+		text-align: center;
+	}
+	.landing-title {
+		margin: 20px 0 8px;
+		font: {
+			size: 32px;
+			weight: var(--fw-bold);
+		}
+		line-height: var(--lh-130);
+	}
+	.landing-text {
+		font: {
+			size: var(--fs-large);
+		}
+		color: var(--c-gray-2);
+		line-height: var(--lh-150);
+	}
+	.landing-swiper-content {
+		@include flex(flex, column, null, center, null, null, center);
+		&.page1 {
+			padding-bottom: 360px;
+			background: {
+				image: url($base-image-url + 'img-landing-1.jpg');
+				position: center bottom -130px;
+			}
+		}
+		&.page2 {
+			padding-bottom: 384px;
+			background: {
+				image: url($base-image-url + 'img-landing-2.jpg');
+				position: center bottom -130px;
+			}
+		}
+		&.page3 {
+			padding-bottom: 384px;
+			background: {
+				image: url($base-image-url + 'img-landing-3.jpg');
+				position: center bottom -130px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 440px) {
+	#landing {
+		.site-logo.intro {
+			width: calc(145 / var(--cal-width-w));
+			height: calc(30 / var(--cal-width-w));
+		}
+		.landing-content {
+			padding: calc(20 / var(--cal-width-w)) 0 calc(20 / var(--cal-width-w));
+		}
+		.landing-title {
+			margin: calc(20 / var(--cal-width-w)) 0 calc(8 / var(--cal-width-w));
+			font-size: calc(32 / var(--cal-width-w));
+		}
+		.landing-text {
+			font-size: calc(16 / var(--cal-width-w));
+		}
+		.lading-swiper-content {
+			&.page1 {
+				padding-bottom: calc(360 / var(--cal-width-w));
+				background: {
+					position: center bottom calc(-130 / var(--cal-width-w));
+				}
+			}
+			&.page2 {
+				padding-bottom: calc(384 / var(--cal-width-w));
+				background: {
+					position: center bottom calc(-130 / var(--cal-width-w));
+				}
+			}
+			&.page3 {
+				padding-bottom: calc(384 / var(--cal-width-w));
+				background: {
+					position: center bottom calc(-130 / var(--cal-width-w));
+				}
+			}
+		}
+		.btn-area {
+			padding: calc(20 / var(--cal-width-w)) 20px calc(32 / var(--cal-width-w));
+		}
+	}
+}
+
+@media screen and (max-width: 360px) {
+	#landing {
+		.site-logo.intro {
+			width: 106px;
+			height: 22px;
+		}
+		.landing-content {
+			padding: 20px 0 0;
+		}
+		.landing-title {
+			margin: 12px 0 8px;
+			font-size: 24px;
+		}
+		.landing-text {
+			font-size: 12px;
+		}
+		.btn-area {
+			padding: 20px;
+		}
+	}
+}

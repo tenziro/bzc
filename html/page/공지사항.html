@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="shortcut icon" type="image/x-icon" href="">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/base.css">
+	<title>bzp출장컨시어지</title>
+</head>
+
+<body>
+	<div id="wrap">
+		<header id="header" class="main">
+			<div class="left">
+				<button type="button" class="btn icons ico-page-back" aria-label="뒤로가기"></button>
+			</div>
+			<h1 class="title">공지사항</h1>
+			<div class="right">
+				<button type="button" class="btn icons ico-user" aria-label="마이페이지"></button>
+				<button type="button" class="btn icons ico-menu" aria-label="전체메뉴"></button>
+			</div>
+		</header>
+		<main id="container" class="full">
+			<div class="tab-header type1">
+				<label class="tab-header-item" id="tab1">
+					<input type="radio" name="tab1" class="tab-input" checked>
+					<span class="tab-text">전체</span>
+				</label>
+				<label class="tab-header-item" id="tab2">
+					<input type="radio" name="tab1" class="tab-input">
+					<span class="tab-text">항공</span>
+				</label>
+				<label class="tab-header-item" id="tab3">
+					<input type="radio" name="tab1" class="tab-input">
+					<span class="tab-text">숙박</span>
+				</label>
+			</div>
+			<div id="contents" class="default">
+				<div class="list-search-area mg-b20">
+					<div class="input md line">
+						<input type="text" placeholder="찾고 있는 내용을 입력해 주세요." id="customerSearch" />
+					</div>
+					<button type="submit" class="btn lg secondary squared ico-search" aria-label="검색" id="customerSubmit"></button>
+				</div>
+				<div class="list-header">
+					<strong class="total">전체 <span>1건</span></strong>
+				</div>
+				<!-- 공지사항 아이템 하나 -->
+				<details class="customer-list-item" data-cate="C">
+					<summary class="customer-list-item-header">
+						<span class="label sm primary">상시</span>
+						<div class="text">
+							<p class="title">bzp출장 컨시어지 서비스 오픈 안내</p>
+							<p class="date">2025.09.11(수) 09:00</p>
+						</div>
+					</summary>
+					<div class="customer-list-item-body">
+						9월11일 부터 출장 특화 서비스인 ‘bzp출장컨시어지’ 서비스가 오픈 되었습니다.<br>
+						해당 서비스를 통해 출장자들의 항공권 및 숙박 예약 부분의 편의성을 높였으며, 전담 매니저를 통한 1:1 맞춤형 상담 진행 서비스도 제공 가능하게 되었습니다.
+					</div>
+				</details>
+				<!-- 더보기 버튼 : 한번 누를때마다 5개씩 추가 -->
+				<!-- <button type="button" class="btn-list-more">더보기(10/26)</button> -->
+				<!-- 검색 결과 없음 -->
+				<div class="list-nodata md" style="display: none;">
+					<i class="ico-nodata"></i>
+					<p class="title">조건에 맞는 검색 결과가 없습니다.</p>
+				</div>
+			</div>
+		</main>
+		<footer id="footer">
+			<ul class="util-menu">
+				<li>
+					<button type="button" class="btn-util">예약확인/결제</button>
+				</li>
+				<li>
+					<a href="tel:027265827" class="btn-util">고객센터 : <span class="underline">02-726-5827</span></a>
+				</li>
+			</ul>
+			<ul class="footer-info">
+				<li><span><button type="button" class="btn-footer-info"><strong>개인정보처리방침</strong></button></span><span><button type="button" class="btn-footer-info">이용약관</button></span></li>
+				<li>비즈플레이(주)</li>
+				<li>
+					대표이사 : 김홍기
+				</li>
+				<li>
+					주소 : <address>서울시 영등포구 영신로 220 KnK디지털타워 12층</address>
+				</li>
+				<li>사업자등록번호 : 107-88-36127</li>
+				<li>통신판매신고번호 : 2015-서울영등포-0113호</li>
+				<li>Copyright(c) bizplay All rights reserved.</li>
+				<li class="mg-t12">비즈플레이㈜는 통신판매 중개자로서 통신판매 당사자가 아니며 여행 상품의 예약, 이용, 결제, 환불 등과 관련한 의무와 책임은 각 상품 공급사에 있습니다.</li>
+			</ul>
+		</footer>
+	</div>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const radios = document.querySelectorAll(".tab-input");
+			const details = document.querySelectorAll(".customer-list-item");
+			const customerSearch = document.getElementById("customerSearch");
+			const customerSubmit = document.getElementById("customerSubmit");
+			const listNodata = document.querySelector(".list-nodata");
+			const listHeaderStrong = document.querySelector(".list-header span");
+
+			const closeToggle = () => {
+				for (const detail of details) {
+					if (detail.hasAttribute("open")) detail.removeAttribute("open");
+				}
+			};
+
+			const updateCount = () => {
+				const visibleItems = [...details].filter(d => d.style.display !== "none");
+				listHeaderStrong.textContent = `${visibleItems.length}건`;
+			};
+
+			const getSelectedTab = () => {
+				const selected = document.querySelector(".tab-input:checked")?.parentElement.id;
+				switch (selected) {
+					case "tab1":
+						return ["C", "F", "H"]; // 전체
+					case "tab2":
+						return ["F"]; // 항공
+					case "tab3":
+						return ["H"]; // 숙박
+					default:
+						return [];
+				}
+			};
+
+			const updateView = () => {
+				const showCates = getSelectedTab();
+
+				// 검색창 초기화
+				customerSearch.value = "";
+
+				for (const detail of details) {
+					detail.style.display = showCates.includes(detail.dataset.cate) ? "" : "none";
+				}
+
+				listNodata.style.display = "none";
+				updateCount();
+				closeToggle();
+			};
+
+			const doSearch = () => {
+				const keyword = customerSearch.value.trim().toLowerCase();
+				let found = false;
+
+				if (!keyword) {
+					updateView();
+					return;
+				}
+
+				let showCates;
+				const selected = document.querySelector(".tab-input:checked")?.parentElement.id;
+
+				switch (selected) {
+					case "tab1":
+						showCates = ["C", "F", "H"];
+						break;
+					case "tab2":
+						showCates = ["F"];
+						break;
+					case "tab3":
+						showCates = ["H"];
+						break;
+					default:
+						showCates = [];
+				}
+
+				for (const detail of details) {
+					if (!showCates.includes(detail.dataset.cate)) {
+						detail.style.display = "none";
+						continue;
+					}
+
+					const titleText = detail.querySelector(".title")?.textContent.trim().toLowerCase() ?? "";
+					const bodyText = detail.querySelector(".customer-list-item-body")?.textContent.trim().toLowerCase() ?? "";
+					const searchTarget = `${titleText} ${bodyText}`;
+
+					if (searchTarget.includes(keyword)) {
+						detail.style.display = "";
+						found = true;
+					} else {
+						detail.style.display = "none";
+					}
+					closeToggle();
+				}
+
+				listNodata.style.display = found ? "none" : "flex";
+				updateCount();
+			};
+
+			for (const radio of radios) {
+				radio.addEventListener("change", updateView);
+			}
+
+			customerSubmit.addEventListener("click", e => {
+				e.preventDefault();
+				doSearch();
+			});
+
+			customerSearch.addEventListener("keyup", e => {
+				if (e.key === "Enter") {
+					e.preventDefault();
+					doSearch();
+				}
+			});
+
+			updateView();
+		});
+	</script>
+</body>
+
+</html>

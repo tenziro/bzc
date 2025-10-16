@@ -1,0 +1,377 @@
+.modal {
+	&.type1 {
+		@include position(fixed, 0, 0, 0, 50%, 100, -50%);
+		@include flex(flex, column);
+		width: 100%;
+		max-width: var(--body-max-width);
+		background: {
+			color: var(--c-white);
+		}
+		.modal-header {
+			@include position(relative);
+			@include flex(flex, null, null, center, null, null, center);
+			@include border(bottom, 1px, solid, var(--border-default));
+			flex: none;
+			height: 60px;
+			padding: 0 18px;
+			background: {
+				color: var(--c-white);
+			}
+			.modal-title {
+				color: var(--c-black);
+				font: {
+					size: var(--fs-big);
+					weight: var(--fw-medium);
+				}
+			}
+			.ico-close {
+				@include position(absolute, 50%, 18px, null, null, null, null, -50%);
+			}
+			.left {
+				@include flex(flex, null, null, center);
+				@include position(absolute, 50%, null, null, 20px, null, null, -50%);
+				gap: 0 8px;
+			}
+			.right {
+				@include flex(flex, null, null, center);
+				@include position(absolute, 50%, 20px, null, null, null, null, -50%);
+				gap: 0 8px;
+			}
+		}
+		.modal-body {
+			flex: 1 1 auto;
+			overflow-y: auto;
+			&.default {
+				padding: 20px;
+				line-height: var(--lh-150);
+			}
+		}
+		.modal-footer {
+			flex: none;
+			padding: 20px 20px 32px;
+			background: {
+				color: var(--c-white);
+			}
+		}
+	}
+}
+
+// * Calendar
+#mo-calendar {
+	@include flex(flex, column);
+	height: 100%;
+	#calendar {
+		&-body {
+			flex: 1 1;
+			overflow-y: auto;
+			.week-header {
+				@include position(sticky, 0, null, null, null, 10);
+			}
+			.calendar-month {
+				padding: 20px 0 15px;
+			}
+		}
+	}
+}
+// * calendar
+#calendar-header {
+	@include position(relative);
+	@include flex(flex);
+	gap: 2px;
+	background: {
+		color: var(--c-white);
+	}
+	.day-column {
+		@include flex(flex, column, null, center, null, null, center);
+		flex: 1 1;
+		height: 80px;
+		background: {
+			color: rgba(var(--default-bg-rgb), 60%);
+		}
+		&.default {
+			.date {
+				color: rgba(var(--c-gray-3-rgb), 40%);
+			}
+		}
+		.title {
+			color: var(--primary-blue);
+			font: {
+				size: var(--fs-xsmall);
+				weight: var(--fw-bold);
+			}
+			+ .date {
+				margin-top: 4px;
+			}
+			+ .time {
+				margin-top: 2px;
+			}
+		}
+		.date {
+			color: var(--c-black);
+			font: {
+				size: var(--fs-medium);
+				weight: var(--fw-bold);
+			}
+		}
+	}
+	.route {
+		@include position(absolute, 50%, null, null, 50%, 1, -50%, -50%);
+		@include flex(inline-flex, null, null, center, null, null, center);
+		width: 36px;
+		height: 24px;
+		text-indent: -9999em;
+		border: {
+			radius: 12px;
+		}
+		&.oneway {
+			@include bg-image-set(icons,
+				ico-korail-oneway,
+				50% 50%,
+				no-repeat,
+				var(--primary-blue),
+				10px auto);
+		}
+		&.roundtrip {
+			@include bg-image-set(icons,
+				ico-korail-roundtrip,
+				50% 50%,
+				no-repeat,
+				var(--primary-blue),
+				10px auto);
+		}
+	}
+	.nights {
+		@include position(absolute, 50%, null, null, 50%, 1, -50%, -50%);
+		@include flex(inline-flex, null, null, center, null, null, center);
+		height: 24px;
+		padding: 0 9px;
+		color: var(--c-white);
+		border: {
+			radius: 12px;
+		}
+		background: {
+			color: var(--primary-blue);
+		}
+		font: {
+			size: var(--fs-xxsmall);
+			weight: var(--fw-bold);
+		}
+	}
+}
+#calendar-body {
+	.sunday,
+	.holiday {
+		color: var(--c-point-1);
+	}
+	.saturday {
+		color: var(--tertiary-blue);
+	}
+	.week-header {
+		@include flex(flex, row, wrap);
+		@include border(bottom, 1px, solid, var(--border-default));
+		background: {
+			color: var(--c-white);
+		}
+		.day {
+			@include flex(inline-flex, null, null, center, null, null, center);
+			flex: 1;
+			height: 40px;
+			&:not(.sunday):not(.saturday) {
+				color: var(--c-gray-3);
+			}
+			font: {
+				size: var(--fs-base);
+			}
+		}
+	}
+	.month {
+		padding: 0 0 20px;
+	}
+	.calendar-month {
+		@include flex(flex, null, null, center, null, null, center);
+		color: var(--c-black);
+		font: {
+			size: var(--fs-black);
+			weight: var(--fw-semi);
+		}
+	}
+	.calendar-days {
+		.week {
+			@include flex(flex, row, wrap, flex-start);
+			+ .week {
+				margin-top: 4px;
+			}
+			.day {
+				@include position(relative);
+				flex: 0 0 calc(100% / 7);
+				&:after {
+					@include position(absolute, 0);
+					height: 40px;
+					background: {
+						color: rgba(var(--secondary-blue-rgb), 8%);
+					}
+				}
+				&:has(.selected-first) {
+					&:after {
+						content: '';
+						right: 0;
+						left: 50%;
+					}
+				}
+				&:has(.selected-last) {
+					&:after {
+						content: '';
+						right: 50%;
+						left: 0;
+					}
+				}
+				&:has(.middle),
+				&:has(.selected-middle) {
+					&:after {
+						content: '';
+						right: 0;
+						left: 0;
+					}
+				}
+			}
+			.btn-day {
+				@include flex(flex, row, wrap, center, null, null, center);
+				@include position(relative, null, null, null, null, 1);
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+				font: {
+					size: var(--fs-large);
+				}
+				&.today {
+					&:after {
+						@include position(absolute, null, null, 3px, 50%);
+						content: '';
+						width: 4px;
+						height: 4px;
+						transform: translate3d(-50%, 0, 0);
+						background: {
+							color: var(--tertiary-blue);
+						}
+						border: {
+							radius: var(--rd-full);
+						}
+					}
+				}
+				&.selected,
+				&.selected-first,
+				&.selected-middle,
+				&.selected-last {
+					color: var(--c-white);
+					background: {
+						color: #7cbbff;
+					}
+					border: {
+						radius: var(--rd-full);
+					}
+					font: {
+						weight: var(--fw-bold);
+					}
+					&.today {
+						&:after {
+							background: {
+								color: var(--c-white);
+							}
+						}
+					}
+				}
+				&:disabled {
+					color: rgba(var(--c-gray-3-rgb), 40%);
+					&.today {
+						&:after {
+							background: {
+								color: rgba(var(--secondary-blue-rgb), 40%);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// * 전체 메뉴
+.mypage-menu {
+	&-header {
+		@include flex(flex, column, wrap, flex-start, null, null, center);
+		height: 139px;
+		padding: 0 20px;
+		color: var(--c-white);
+		background: rgb(124, 187, 255);
+		background: linear-gradient(145deg, rgba(124, 187, 255, 1) 0%, rgba(26, 50, 216, 1) 100%);
+		p {
+			font: {
+				size: var(--fs-black);
+			}
+			&:nth-child(2) {
+				margin-top: 5px;
+				font: {
+					weight: var(--fw-bold);
+				}
+			}
+		}
+	}
+	&-list {
+		.link {
+			@include flex(flex, null, null, center);
+			@media (hover: hover) and (pointer: fine) {
+				&:hover {
+					font: {
+						weight: var(--fw-bold);
+					}
+				}
+			}
+			height: 46px;
+			cursor: pointer;
+			font: {
+				size: var(--fs-medium);
+				weight: var(--fw-medium);
+			}
+		}
+	}
+}
+.menu-accordion {
+	.menu-accordion-header {
+		@include border(bottom, 1px, solid, var(--border-default));
+		@include position(relative);
+		padding-bottom: 20px;
+		&:after {
+			@include position(absolute, 50%, 0, null, null, null, null, calc(-50% - 9px));
+			content: '';
+			flex: none;
+			width: 24px;
+			height: 24px;
+		}
+		strong {
+			color: var(--c-black);
+			font: {
+				size: var(--fs-extra);
+			}
+		}
+	}
+	+ .menu-accordion {
+		margin-top: 20px;
+	}
+	&:not([open]) {
+		.menu-accordion-header {
+			&:after {
+				@include bg-image-svg(common, 'ico-accordion-default', 50% 50%, no-repeat);
+			}
+		}
+	}
+	&[open] {
+		.menu-accordion-header {
+			&:after {
+				@include bg-image-svg(common, 'ico-accordion-active', 50% 50%, no-repeat);
+			}
+		}
+	}
+	.menu-accordion-body {
+		padding: 10px 0;
+	}
+}

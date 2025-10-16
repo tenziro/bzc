@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="shortcut icon" type="image/x-icon" href="">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/base.css">
+	<title>bzp출장컨시어지</title>
+</head>
+
+<body class="stop-scroll">
+	<div class="modal type1">
+		<div class="modal-header">
+			<h1 class="modal-title">날짜 선택</h1>
+			<button type="button" class="btn icons ico-close" aria-label="닫기"></button>
+		</div>
+		<div class="modal-body">
+			<div id="mo-calendar">
+				<div id="calendar-header">
+					<!-- 날짜 선택 전, .default 추가, 날짜 선택 후 .default 삭제 -->
+					<button type="button" class="day-column">
+						<strong class="title">체크인</strong>
+						<strong class="date">25.11.01(금)</strong>
+					</button>
+					<!-- 날짜 선택 전, .default 추가, 날짜 선택 후 .default 삭제 -->
+					<button type="button" class="day-column default">
+						<strong class="title">체크아웃</strong>
+						<strong class="date">날짜 선택</strong>
+					</button>
+					<span class="nights">0박</span>
+				</div>
+				<div id="calendar-body">
+					<div class="week-header">
+						<div class="day sunday">일</div>
+						<div class="day">월</div>
+						<div class="day">화</div>
+						<div class="day">수</div>
+						<div class="day">목</div>
+						<div class="day">금</div>
+						<div class="day saturday">토</div>
+					</div>
+					<!-- * 월 반복 -->
+					<div class="month">
+						<h2 class="calendar-month">2025.01</h2>
+						<div class="calendar-days">
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday"></div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day" disabled="">1</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<!-- * 예약 불가능한 날짜에 disabled 추가 -->
+									<button type="button" role="button" class="btn-day" disabled="">2</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day" disabled="">3</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day" disabled="">4</button>
+								</div>
+								<div class="day">
+									<!-- * 오늘 날짜에 .today 추가 -->
+									<button type="button" role="button" class="btn-day today">5</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">6</button>
+								</div>
+								<div class="day">
+									<!-- 단일 선택일때 .selected 추가 -->
+									<button type="button" role="button" class="btn-day selected">7</button>
+								</div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day">8</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<!-- * 다중 선택의 첫번째 선택에 .selected-first 추가 -->
+									<button type="button" role="button" class="btn-day selected-first">9</button>
+								</div>
+								<div class="day">
+									<!-- * 다음 선택 사이의 날짜에 .middle 추가 -->
+									<button type="button" role="button" class="btn-day middle">10</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day middle">11</button>
+								</div>
+								<div class="day">
+									<!-- * 다중 선택의 중간 선택에 .selected-middle 추가 -->
+									<button type="button" role="button" class="btn-day selected-middle">12</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day middle">13</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day middle">14</button>
+								</div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day middle">15</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<button type="button" role="button" class="btn-day middle">16</button>
+								</div>
+								<div class="day">
+									<!-- * 다중 선택의 마지막 선택에 .selected-last 추가 -->
+									<button type="button" role="button" class="btn-day selected-last">17</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">18</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">19</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">20</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">21</button>
+								</div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day">22</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<button type="button" role="button" class="btn-day">23</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">24</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">25</button>
+								</div>
+								<!-- * 공휴일은 .holiday 추가 -->
+								<div class="day holiday">
+									<button type="button" role="button" class="btn-day">26</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">27</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">28</button>
+								</div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day">29</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<button type="button" role="button" class="btn-day">30</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">31</button>
+								</div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day saturday"></div>
+							</div>
+						</div>
+					</div>
+					<!-- * 월 반복 -->
+					<div class="month">
+						<h2 class="calendar-month">2025.02</h2>
+						<div class="calendar-days">
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday"></div>
+								<div class="day"></div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">1</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">2</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">3</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">4</button>
+								</div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day">5</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<button type="button" role="button" class="btn-day">6</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">7</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">8</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">9</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">10</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">11</button>
+								</div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day">12</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<button type="button" role="button" class="btn-day">13</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">14</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">15</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">16</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">17</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">18</button>
+								</div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day">19</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<button type="button" role="button" class="btn-day">20</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">21</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">22</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">23</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">24</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">25</button>
+								</div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day">26</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<button type="button" role="button" class="btn-day">27</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">28</button>
+								</div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day saturday"></div>
+							</div>
+						</div>
+					</div>
+					<!-- * 월 반복 -->
+					<div class="month">
+						<h2 class="calendar-month">2025.03</h2>
+						<div class="calendar-days">
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday"></div>
+								<div class="day"></div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">1</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">2</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">3</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">4</button>
+								</div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day">5</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<button type="button" role="button" class="btn-day">6</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">7</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">8</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">9</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">10</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">11</button>
+								</div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day">12</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<button type="button" role="button" class="btn-day">13</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">14</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">15</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">16</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">17</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">18</button>
+								</div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day">19</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<button type="button" role="button" class="btn-day">20</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">21</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">22</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">23</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">24</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">25</button>
+								</div>
+								<div class="day saturday">
+									<button type="button" role="button" class="btn-day">26</button>
+								</div>
+							</div>
+							<!-- * 주 반복 -->
+							<div class="week">
+								<div class="day sunday">
+									<button type="button" role="button" class="btn-day">27</button>
+								</div>
+								<div class="day">
+									<button type="button" role="button" class="btn-day">28</button>
+								</div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day"></div>
+								<div class="day saturday"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<div class="btn-area both">
+				<!-- 선택한 항목이 하나도 없을 경우 button disabled -->
+				<button type="button" class="btn lg line-primary squared">초기화</button>
+				<button type="button" class="btn lg primary squared">적용하기</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

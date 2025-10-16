@@ -1,0 +1,149 @@
+// ! Layout
+#wrap {
+	@include position(relative);
+	@include flex(flex, column);
+	min-height: 100dvh;
+	background: var(--c-white);
+}
+
+// ! Header
+#header {
+	@include position(relative);
+	@include flex(flex, null, null, center, null, null, center);
+	height: 60px;
+	&.main {
+		@include border(bottom, 1px, solid, var(--border-default));
+		background: {
+			color: var(--c-white);
+		}
+		@include position(sticky, 0, null, null, null, 10);
+	}
+	.title {
+		color: var(--c-black);
+		font: {
+			size: var(--fs-big);
+			weight: var(--fw-medium);
+		}
+	}
+	.left {
+		@include flex(flex, null, null, center);
+		@include position(absolute, 50%, null, null, 20px, null, null, -50%);
+		gap: 0 8px;
+	}
+	.right {
+		@include flex(flex, null, null, center);
+		@include position(absolute, 50%, 20px, null, null, null, null, -50%);
+		gap: 0 8px;
+	}
+	&.sub {
+		padding: 0 20px;
+	}
+}
+
+// ! Container
+#container {
+	&.full {
+		@include flex(flex, column);
+		flex: 1 1;
+	}
+	&.centered {
+		background: {
+			color: var(--c-white);
+		}
+		#contents {
+			@include flex(flex, column, null, null, null, null, center);
+			flex: 1 1 auto;
+		}
+	}
+}
+
+// ! Contents
+#contents {
+	&.default {
+		padding: 20px;
+	}
+}
+.contents-btn-area {
+	padding: 20px;
+	background: {
+		color: var(--c-white);
+	}
+	&.sticky {
+		@include position(sticky, null, null, 0, null, 1);
+		margin-top: auto;
+	}
+}
+
+// ! Footer
+#footer {
+	display: block;
+	.util-menu {
+		@include flex(flex, null, null, center);
+		height: 53px;
+		background: {
+			color: var(--c-gray-1);
+		}
+		.btn-util {
+			color: #CED2D9;
+			font: {
+				size: var(--fs-small);
+				weight: var(--fw-base);
+			}
+		}
+		li {
+			+ li {
+				&:before {
+					background: {
+						color: var(--c-gray-2);
+					}
+				}
+			}
+		}
+	}
+	.footer-info {
+		padding: 32px 20px 40px;
+		background: {
+			color: #F9F8F8;
+		}
+		> li {
+			color: var(--c-gray-2);
+			word-break: keep-all;
+			&:nth-child(1) {
+				font: {
+					size: var(--fs-small);
+				}
+			}
+			&:nth-child(2) {
+				margin-bottom: 12px;
+			}
+			+ li {
+				margin-top: 4px;
+			}
+			font: {
+				size: var(--fs-xsmall);
+			}
+			strong {
+				color: var(--c-gray-1);
+			}
+			address {
+				display: inline-block;
+			}
+			span {
+				@include position(relative);
+				+ span {
+					margin-left: 12px;
+					padding-left: 13px;
+					&:before {
+						@include position(absolute, 50%, null, null, 0, null, -50%, -50%);
+						content: "";
+						width: 1px;
+						height: 11px;
+						background: {
+							color: #CED2D9;
+						}
+					}
+				}
+			}
+		}
+	}
+}

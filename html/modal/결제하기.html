@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="shortcut icon" type="image/x-icon" href="">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/base.css">
+	<title>bzp출장컨시어지</title>
+</head>
+
+<body>
+	<div class="modal type1">
+		<div class="modal-header">
+			<h1 class="modal-title">결제하기</h1>
+			<button type="button" class="btn icons ico-close" aria-label="닫기"></button>
+		</div>
+		<div class="modal-body">
+			<div class="contents-box type1">
+				<div class="contents-msg mg-b16">
+					<h2 class="title">결제 정보를 입력해 주세요.</h2>
+					<p class="text">
+						결제 정보 암호화로 안전한 거래를 진행합니다.<br>개인정보를 안전하게 보호하며 다른
+						용도로<br>사용하지 않습니다.
+					</p>
+				</div>
+				<dl class="comm-total-price" data-type="box">
+					<dt>최종 결제 금액</dt>
+					<dd>
+						<p>
+							<strong>1,026,000원</strong>
+						</p>
+					</dd>
+				</dl>
+			</div>
+			<div class="contents-box type2 line">
+				<h2 class="title1">결제수단</h2>
+				<ul class="form type1 mg-t12">
+					<li class="form-item">
+						<div class="form-item-title">
+							<label for=""><sup>카드구분</sup></label>
+						</div>
+						<div class="form-item-contents">
+							<div class="select-box md line">
+								<select name="" id="">
+									<option value="">개인카드</option>
+									<option value="">공용법인카드</option>
+								</select>
+							</div>
+						</div>
+					</li>
+					<li class="form-item">
+						<div class="form-item-title">
+							<label for=""><sup>카드종류</sup></label>
+						</div>
+						<div class="form-item-contents">
+							<div class="select-box md line">
+								<select name="" id="" required>
+									<option value="" selected disabled>선택</option>
+									<option value="">VISA</option>
+								</select>
+							</div>
+						</div>
+					</li>
+					<li class="form-item">
+						<div class="form-item-title">
+							<label for=""><sup>카드번호</sup></label>
+						</div>
+						<div class="form-item-contents">
+							<div class="input md line">
+								<input type="number" placeholder="숫자만 입력">
+							</div>
+						</div>
+					</li>
+					<!-- 개인카드일 경우 -->
+					<li class="form-item">
+						<div class="form-item-title">
+							<label for=""><sup>생년월일</sup></label>
+						</div>
+						<div class="form-item-contents">
+							<div class="input md line">
+								<input type="number" placeholder="8자리 숫자만 입력">
+							</div>
+						</div>
+					</li>
+					<!-- 법인카드일 경우 -->
+					<li class="form-item">
+						<div class="form-item-title">
+							<label for=""><sup>사업자번호</sup></label>
+						</div>
+						<div class="form-item-contents">
+							<div class="input md line">
+								<input type="number" placeholder="8자리 숫자만 입력">
+							</div>
+						</div>
+					</li>
+					<li class="form-item">
+						<div class="form-item-title">
+							<label for=""><sup>유효기간</sup></label>
+						</div>
+						<div class="form-item-contents">
+							<div class="input md line">
+								<input type="number" placeholder="유효기간 4자리 입력(MMYY)" maxlength="4">
+							</div>
+						</div>
+					</li>
+					<li class="form-item">
+						<div class="form-item-title">
+							<label for=""><sup>할부기간</sup></label>
+						</div>
+						<div class="form-item-contents">
+							<div class="select-box md line">
+								<select name="" id="" required>
+									<option value="" selected disabled>선택</option>
+									<option value="">일시불</option>
+									<option value="">2개월</option>
+								</select>
+							</div>
+						</div>
+					</li>
+					<li class="form-item">
+						<div class="form-item-title">
+							<label for=""><sup>카드 비밀번호 (앞 2자리)</sup></label>
+						</div>
+						<div class="form-item-contents">
+							<div class="input md line">
+								<input type="password" placeholder="카드 비밀번호 입력(앞 2자리)" maxlength="2">
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="ul-type1 c-gray-2 mg-t20">
+					<li>체크카드는 할부 결제가 불가합니다.</li>
+					<li>결제하기 버튼은 한번만 클릭하여 주시기 바라며, 결제완료까지 30초~60초 가량 소요됩니다.</li>
+					<li>결제완료 전에 창을 닫으면 예약 및 결제 오류가 발생할 수 있습니다.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn lg primary squared">결제하기</button>
+		</div>
+	</div>
+</body>
+
+</html>

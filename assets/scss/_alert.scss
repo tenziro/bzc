@@ -1,0 +1,44 @@
+.alert {
+	@include flex(flex, null, null, center, null, null, center);
+	@include position(fixed, 0, 0, 0, 50%, 1000, -50%);
+	max-width: var(--body-max-width);
+	min-width: var(--body-min-width);
+	width: 100%;
+	padding: 20px;
+	background: {
+		color: rgba(var(--c-black-rgb), 40%);
+	}
+	&-contents {
+		padding: 24px 20px;
+		width: 100%;
+		flex: none;
+		background: {
+			color: var(--c-white);
+		}
+		border: {
+			radius: var(--rd-medium);
+		}
+	}
+	&-title {
+		color: var(--c-black);
+		text-align: center;
+		font: {
+			size: var(--fs-big);
+			weight: var(--fw-bold);
+		}
+		+ .alert-text {
+			margin-top: 8px;
+		}
+	}
+	&-text {
+		text-align: center;
+		font: {
+			size: var(--fs-large);
+		}
+		color: var(--c-gray-2);
+		line-height: var(--lh-150);
+	}
+	&-bottom {
+		margin-top: 24px;
+	}
+}
